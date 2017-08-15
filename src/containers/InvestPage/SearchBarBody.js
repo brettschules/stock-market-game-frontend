@@ -1,11 +1,20 @@
 import _ from 'lodash'
-import faker from 'faker'
 import React, { Component } from 'react'
 import ListOfAllCompainesAPI from '../../ListOfAllCompaniesAPI'
 import { Search, Grid, Header } from 'semantic-ui-react'
+import {SelectedEquityFromSearch} from '../../actions/InvestPage/index';
+import {FetchEquitesAlpha} from '../../actions/MainPage/index';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
 
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
+  constructor() {
+    super()
+    this.state={
+      name: ""
+    }
+  }
 
   componentWillMount() {
     this.resetComponent()
@@ -13,8 +22,12 @@ export default class SearchBar extends Component {
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
+  handleResultSelect = (e, {result}) => {
+    this.props.SelectedEquityFromSearch(result.title)
+    this.props.FetchEquitesAlpha(result.title)
+    this.setState({ value: result.title })
+  }
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value })
 
@@ -22,7 +35,7 @@ export default class SearchBar extends Component {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.title)
+      const isMatch = (result) => re.test(result.description)
 
       this.setState({
         isLoading: false,
@@ -44,6 +57,7 @@ export default class SearchBar extends Component {
       <Grid>
         <Grid.Column width={8}>
           <Search
+            placeholder={"Search for name of equity"}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={this.handleSearchChange}
@@ -53,9 +67,10 @@ export default class SearchBar extends Component {
 
           />
           </Grid.Column>
-
-
       </Grid>
     )
   }
 }
+
+
+export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha})(SearchBar)

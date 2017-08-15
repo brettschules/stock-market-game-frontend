@@ -1,6 +1,7 @@
 export const POSTLOGINPARAMS = 'POSTLOGINPARAMS'
 export const AUTH = 'AUTH'
 export const LOGOUT = 'LOGOUT'
+export const ISLOGGEDIN = 'ISLOGGEDIN'
 
 
 const BASEURL = 'http://localhost:3000/api/v1'
@@ -26,10 +27,16 @@ export function Login(loginParams) {
       if(resp.error){
         console.log("do nothing")
       } else {
-        localStorage.setItem('jwt', resp.token)
+        localStorage.setItem('jwt', resp.jwt)
         dispatch({type: AUTH, resp: resp})
       }
     })
+  }
+}
+
+export function isLoggedIn() {
+  return {
+    type: ISLOGGEDIN
   }
 }
 

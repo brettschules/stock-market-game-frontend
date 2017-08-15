@@ -19,6 +19,7 @@ class NavBar extends Component{
 // <Menu.Item as={Link} to="/profile" name='Add Blog'  />
 
   render(){
+    console.log(this.props)
     return(
       <div>
         <Menu inverted color="blue" position='left' size="huge">
@@ -43,7 +44,7 @@ class NavBar extends Component{
 
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.postLogin.auth.isLoggedIn
+    isLoggedIn: state.postLogin.isLoggedIn
   }
 }
 

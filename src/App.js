@@ -5,13 +5,21 @@ import MainPage from './containers/MainPage'
 import WelcomePage from './containers/WelcomePage'
 import Login from './containers/WelcomePage/LoginFormModal'
 import { connect } from 'react-redux'
+import {isLoggedIn} from './actions/WelcomePage/index'
+import {bindActionCreators} from 'redux';
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
 
 
 class App extends Component{
 
+
+  componentWillMount() {
+    this.props.isLoggedIn()
+  }
+
   render(){
+    console.log(this.props, "tessting")
     return(
       <div>
       <NavBar />
@@ -30,9 +38,10 @@ class App extends Component{
 }
 
 function mapStateToProps(state) {
+  
   return {
-    isLoggedIn: state.postLogin.auth.isLoggedIn
+    isLoggedIn: state.postLogin.isLoggedIn
   }
 }
 
-export default connect(mapStateToProps, null)(App)
+export default connect(mapStateToProps, {isLoggedIn})(App)

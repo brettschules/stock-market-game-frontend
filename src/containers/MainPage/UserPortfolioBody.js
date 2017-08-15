@@ -27,7 +27,6 @@ class UserPortfolioBody extends Component{
   }
 
   render(){
-    console.log(this.props.equityInfo, "dfsah")
     return(
       <div>
         <div>
