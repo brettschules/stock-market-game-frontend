@@ -34,11 +34,6 @@ export function Login(loginParams) {
   }
 }
 
-export function isLoggedIn() {
-  return {
-    type: ISLOGGEDIN
-  }
-}
 
 export function Logout() {
   return {

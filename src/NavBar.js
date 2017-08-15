@@ -15,8 +15,6 @@ class NavBar extends Component{
     this.props.Logout();
   }
 
-  // <Menu.Item as={Link} to="/newblog" name='Add Blog' active={activeItem === 'NewForm'} onClick={this.handleItemClick} />
-// <Menu.Item as={Link} to="/profile" name='Add Blog'  />
 
   render(){
     console.log(this.props)
@@ -48,4 +46,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {Logout})(NavBar)
+export default connect(mapStateToProps, {Logout, })(NavBar)

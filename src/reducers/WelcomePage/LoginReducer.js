@@ -1,14 +1,14 @@
-export default function(state = {postingLoginParams: false, isLoggedIn: false}
+export default function(state = {postingLoginParams: false, auth: {isLoggedIn: false}}
 ,action) {
   switch (action.type) {
   case 'POSTLOGINPARAMS':
-    return {postingLoginParams: true, isLoggedIn: false }
+    return {postingLoginParams: true, auth: {isLoggedIn: false} }
   case 'AUTH':
-    return {postingLoginParams: false, isLoggedIn: true }
+    return {postingLoginParams: false, auth: {isLoggedIn: true} }
   case 'ISLOGGEDIN':
-    return {postingLoginParams: false, isLoggedIn: true }
+    return {postingLoginParams: false, auth: {isLoggedIn: true} }
   case 'LOGOUT':
-    return {postingLoginParams: false, isLoggedIn: false}
+    return {postingLoginParams: false, auth: {isLoggedIn: false} }
   default:
     return state
   }

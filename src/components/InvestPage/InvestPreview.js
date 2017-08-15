@@ -20,10 +20,25 @@ import { Card, Icon, Button } from 'semantic-ui-react';
   //    return d.getFullYear() + "-" + month + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getMilliseconds()
   //  }
    //
+
+   month = () => {
+     let d = new Date();
+     let m = d.getMonth()+1;
+     let month = m.toString()
+     console.log(month, "mounth")
+     if (month.length === 1) {
+
+       return "0" + month
+     } else {
+       return month
+     }
+   }
+
+
    currentDate = () => {
      let d = new Date();
-     let month = d.getMonth()+1;
-     return d.getFullYear() + "-" + month + "-" + d.getDate()
+     console.log(this.month(), "sadfjl")
+     return d.getFullYear() + "-" + this.month() + "-" + d.getDate()
    }
    //
   //  currentTime = () => {
@@ -37,7 +52,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
   }
 
    checkIfBuyDuringMarketHours = () => {
-     if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time === this.currentDate()) {
+     if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time.slice(0,10) === this.currentDate()) {
        return true
      } else {
        return false
@@ -52,7 +67,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
    handleSubmit = (event) => {
      event.preventDefault
-     console.log(this.props.selectedEquity, this.props.price, this.props.time )
+     console.log(this.currentDate(), "date", this.props.time.slice(0,10) )
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
    }
 

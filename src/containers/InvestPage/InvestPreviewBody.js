@@ -29,6 +29,5 @@ import InvestPreview from '../../components/InvestPage/InvestPreview'
        price: "0.00"
      }
    }
-
  }
  export default connect(mapStateToProps, null)(InvestPreviewBody)
