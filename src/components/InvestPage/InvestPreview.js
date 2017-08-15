@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import { Card, Icon, Button } from 'semantic-ui-react';
 
 
- export default class InvestPreview extends Component {
+ class InvestPreview extends Component {
    constructor() {
      super()
      this.state = {
@@ -37,14 +37,9 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
    currentDate = () => {
      let d = new Date();
-     console.log(this.month(), "sadfjl")
      return d.getFullYear() + "-" + this.month() + "-" + d.getDate()
    }
-   //
-  //  currentTime = () => {
-  //     let d = new Date();
-  //     return d.getHours() + ":" + d.getMinutes() + ":" + d.getMilliseconds()
-  //  }
+
 
   noteStatus = () => {
 
@@ -53,9 +48,9 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
    checkIfBuyDuringMarketHours = () => {
      if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time.slice(0,10) === this.currentDate()) {
-       return true
+       return "Excuted"
      } else {
-       return false
+       return "Pending"
      }
    }
 
@@ -65,8 +60,32 @@ import { Card, Icon, Button } from 'semantic-ui-react';
       })
    }
 
+   dataParams = () => {
+     return {
+       name: "testStock",
+       symbol: this.props.name,
+       price_purchased: this.props.FetchEquitesAlpha(this.props.name),
+       units: this.state.shares,
+       status: this.checkIfBuyDuringMarketHours(),
+       order: "buy",
+       user_id: "1"
+     }
+   }
+
+   postStockToDB = () => {
+     const postData = {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(this.dataParams(this.dataParams()))
+     }
+     fetch('http://localhost:3000/api/v1/stocks', postData)
+   }
+
    handleSubmit = (event) => {
      event.preventDefault
+     this.postStockToDB()
      console.log(this.currentDate(), "date", this.props.time.slice(0,10) )
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
    }
@@ -97,3 +116,5 @@ import { Card, Icon, Button } from 'semantic-ui-react';
     )
   }
 }
+
+export default connect(null, {FetchEquitesAlpha})(InvestPreview)

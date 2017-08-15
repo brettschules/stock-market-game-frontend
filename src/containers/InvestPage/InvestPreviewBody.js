@@ -9,7 +9,7 @@ import InvestPreview from '../../components/InvestPage/InvestPreview'
   render() {
     return(
       <div>
-        <InvestPreview selectedEquity={this.props.selectedEquity} price={this.props.price} time={this.props.time}/>
+        <InvestPreview name={this.props.selectedEquity} price={this.props.price} time={this.props.time}/>
       </div>
     )
   }
