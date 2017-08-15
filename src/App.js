@@ -15,14 +15,18 @@ class App extends Component{
     console.log(this.props, "tessting")
     return(
       <div>
-      <NavBar />
       <Router>
+      <div>
+
+
+      <NavBar />
         <div>
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
             <Route exact path='/login' render={()=> this.props.isLoggedIn ? <Redirect to="/Profile" /> : <Login /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
         </div>
+      </div>
       </Router>
       </div>
     )

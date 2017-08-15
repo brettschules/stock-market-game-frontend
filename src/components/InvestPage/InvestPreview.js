@@ -25,15 +25,12 @@ import { Card, Icon, Button } from 'semantic-ui-react';
      let d = new Date();
      let m = d.getMonth()+1;
      let month = m.toString()
-     console.log(month, "mounth")
      if (month.length === 1) {
-
        return "0" + month
      } else {
        return month
      }
    }
-
 
    currentDate = () => {
      let d = new Date();
@@ -42,8 +39,11 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
 
   noteStatus = () => {
-
-    return "The market is currently close right now.  Your order will be pending and will be excuted during the next market open"
+    if(this.checkIfBuyDuringMarketHours === "Excuted") {
+      return "Your order has been Excuted!"
+    } else if (this.checkIfBuyDuringMarketHours === "Excuted") {
+      return "The market is currently close right now.  Your order will be pending and will be excuted during the next market open"
+    }
   }
 
    checkIfBuyDuringMarketHours = () => {
@@ -61,10 +61,12 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    }
 
    dataParams = () => {
+     this.props.FetchEquitesAlpha(this.props.name)
+
      return {
        name: "testStock",
        symbol: this.props.name,
-       price_purchased: this.props.FetchEquitesAlpha(this.props.name),
+       price_purchased: this.props.price,
        units: this.state.shares,
        status: this.checkIfBuyDuringMarketHours(),
        order: "buy",
@@ -92,6 +94,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
   render() {
     return (
+      <div>
       <Card>
         <Card.Content header={this.props.selectedEquity} />
         <Card.Content>
@@ -113,8 +116,17 @@ import { Card, Icon, Button } from 'semantic-ui-react';
         </Card.Content>
         <Button onClick={this.handleSubmit}>Purchase</Button>
       </Card>
+      <p>
+        {this.noteStatus()}
+      </p>
+      </div>
     )
   }
 }
 
-export default connect(null, {FetchEquitesAlpha})(InvestPreview)
+function mapStateToProps(state) {
+  console.log(state, "state")
+
+
+}
+export default connect(mapStateToProps, {FetchEquitesAlpha})(InvestPreview)
