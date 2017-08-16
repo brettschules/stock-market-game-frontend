@@ -70,7 +70,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
        units: this.state.shares,
        status: this.checkIfBuyDuringMarketHours(),
        order: "buy",
-       user_id: "1"
+       user_id: this.props.userInfo.user_id
      }
    }
 
@@ -125,8 +125,10 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 }
 
 function mapStateToProps(state) {
-  console.log(state, "state")
-
+  console.log(state)
+  return {
+    userInfo: state.postLogin.userInfo
+  }
 
 }
 export default connect(mapStateToProps, {FetchEquitesAlpha})(InvestPreview)
