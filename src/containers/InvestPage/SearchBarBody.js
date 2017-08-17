@@ -18,7 +18,7 @@ const chartOptions = {
   maintainAspectRatio: false,
   title: {
     display: true,
-    text: "Stock Performance",
+    text: "Monthly Performance",
     fontSize: 25,
     position: "top",
     fontColor: "black"
@@ -56,26 +56,10 @@ class SearchBar extends Component {
       "isLoading": false,
       "results": [],
       "value": "",
-      name: "",
       chartData: {}
     }
   }
 
-  chartData = (months, values) => {
-    return ({
-      chartData: {
-        labels: months,
-        datasets: [
-          {
-            label: "My First dataset",
-            backgroundColor: 'rgb(94, 9, 108)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: values
-          }
-        ]
-      }
-    })
-  }
 
   componentWillMount() {
     this.resetComponent()
@@ -95,6 +79,7 @@ class SearchBar extends Component {
       labels: labels.reverse(),
       datasets: [
         {
+          label: this.props.equityName,
           backgroundColor: 'rgb(7, 22, 119)',
           borderColor: 'rgb(7, 22, 119)',
           data: data.reverse()
@@ -132,7 +117,6 @@ class SearchBar extends Component {
 
 
   render() {
-
     <Grid.Column width={8}>
          <Header>State</Header>
          <Header>Options</Header>
@@ -169,9 +153,15 @@ class SearchBar extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  console.log(state)
+  return {
+    equityName: state.selectedEquity.equity
+  }
+}
 
 
 
 
 
-export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha, SearchBarValue})(SearchBar)
+export default connect(mapStateToProps, {SelectedEquityFromSearch, FetchEquitesAlpha, SearchBarValue})(SearchBar)
