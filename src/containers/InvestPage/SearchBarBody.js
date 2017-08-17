@@ -4,6 +4,7 @@ import ListOfAllCompainesAPI from '../../ListOfAllCompaniesAPI'
 import {Search, Grid, Header} from 'semantic-ui-react'
 import {SelectedEquityFromSearch} from '../../actions/InvestPage/index';
 import {FetchEquitesAlpha} from '../../actions/MainPage/index';
+import {SearchBarValue} from '../../actions/InvestPage/index'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import {Line} from 'react-chartjs-2';
@@ -113,6 +114,7 @@ class SearchBar extends Component {
 
   handleSearchChange = (e, {value}) => {
     this.setState({isLoading: true, value })
+    this.props.SearchBarValue(value)
 
     setTimeout(() => {
       if (this.state.value.length < 1)
@@ -128,7 +130,9 @@ class SearchBar extends Component {
     }, 500)
   }
 
+
   render() {
+
     <Grid.Column width={8}>
          <Header>State</Header>
          <Header>Options</Header>
@@ -170,4 +174,4 @@ class SearchBar extends Component {
 
 
 
-export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha})(SearchBar)
+export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha, SearchBarValue})(SearchBar)

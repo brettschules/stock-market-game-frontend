@@ -93,21 +93,15 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    }
 
   render() {
+    console.log(this.props.searchBarValue, "me")
     return (
       <div>
       <Card >
-        <Card.Content header={this.props.name} />
-        <Card.Content >
-
-            {this.props.price}
-
-        </Card.Content>
-
-
+          {this.props.searchBarValue !== "" ? <Card.Content header={this.props.name} /> : <Card.Content description="Start Searching!" />}
+        {this.props.searchBarValue !== "" ? <Card.Content>{this.props.price}</Card.Content> : <Card.Content description="0.00" />}
         <Card.Content extra >
           <form >
             <input className="stock-number-input" type="number" min="0" value={this.state.shares} onChange={this.handleChange}/>
-
           </form>
         </Card.Content>
         <Card.Content >
@@ -132,9 +126,9 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
-    userInfo: state.postLogin.userInfo
+    userInfo: state.postLogin.userInfo,
+    searchBarValue: state.searchBarValue.value
   }
 
 }
