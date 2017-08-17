@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
- import { Card, Icon, Image } from 'semantic-ui-react'
+ import { Icon, Image } from 'semantic-ui-react'
 
 export default class UserProfile extends Component{
   constructor(){
@@ -8,36 +8,28 @@ export default class UserProfile extends Component{
 
   render(){
     return(
-      <Card>
-        <Image src='http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts' />
-        <Card.Content>
-          <Card.Header>
-            Welcome Homer Simpsons!
-          </Card.Header>
-          <Card.Meta>
-            <span className='date'>
-              Joined in 2017
-            </span>
-          </Card.Meta>
-          </Card.Content>
-          <Card.Content>
-            <Card.Header>
-              Your current Net Value Worth:
-            </Card.Header>
-          <Card.Description>
-            $20,000
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <Card.Header>
-            Account Balance
-          </Card.Header>
-          <a>
-            <Icon name='user' />
-              $0.00
-          </a>
-        </Card.Content>
-      </Card>
+
+      <div className="card">
+        <Image className="profile-image" fluid={true} size="medium" src='http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts' />
+        <div className="profile-name">
+          <h4 ><b id="user-profile-title">Welcome Homer Simpsons!</b></h4>
+            <p id="joined">Joined in 2017</p>
+        </div>
+         <div className="profile-networth">
+          <h4><b id="user-profile-net">Your current Net Value Worth:</b></h4>
+            <div className="dollar">
+              <Icon name='dollar' color='green' size="huge"/> <span id="user-money">20,000</span>
+            </div>
+          </div>
+          <div className="account-balance">
+            <h4><b id="user-profile-balance">Account Balance:</b></h4>
+            <div className="dollar">
+              <Icon name='dollar' color='green' size="huge"/> <span id="user-balance">0.00</span>
+            </div>
+          </div>
+     </div>
+
+
     )
   }
 }

@@ -1,5 +1,98 @@
+/*---------------------NavBar-----------------------*/
+/*NavBar*/
+.ui.inverted.blue.menu, .ui.inverted.menu .blue.active.item {
+    background-color: #2185d0;
+    margin-bottom: 150px;
+}
 
 
+/*---------------------MAIN_PAGE-----------------------*/
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 50px;
+    width: 70%;
+    height: 550px;
+}
+
+.profile-name {
+  height: 80px;
+  margin-top: 30px;
+  border-bottom-width: thin;
+  border-bottom-style: solid;
+  margin-bottom: 20px;
+}
+
+.profile-networth {
+  margin-top: 30px;
+  border-bottom-width: thin;
+  border-bottom-style: solid;
+  margin-bottom: 20px;
+  height: 107px;
+}
+
+.account-balance {
+  height: 80px;
+  margin-top: 30px;
+}
+
+.dollar {
+  margin-left: 60px;
+}
+
+
+#user-profile-title {
+   font-size: 25px;
+    margin-left: 30px;
+}
+
+#user-profile-net {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+#user-profile-balance {
+  margin-left: 100px;
+  font-size: 25px;
+}
+
+
+#joined {
+  font-size: 20px;
+  text-align: center;
+}
+
+#user-money {
+  font-size: 30px;
+}
+
+#user-balance {
+  font-size: 30px;
+  text-align: center;
+}
+
+.ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
+    width: 300px;
+    height: auto;
+    font-size: 1rem;
+    margin-left: 30px;
+}
+
+
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+
+/*---------------------INVEST_PAGE-----------------------*/
 /*UserPortfolio */
 th, td {
   padding: 20px;
@@ -7,11 +100,7 @@ th, td {
 }
 
 canvas {
-  margin-top: 100px;
   argin-left: 100px;
-  /*margin-right:  -430px;
-float: right;*/
-
 }
 
 /*element.style {
@@ -22,7 +111,6 @@ float: right;*/
 .ui.search {
   position: absolute;
   margin-left: -350px;
-  margin-top: 50px;
 }
 
 /*invest preview*/
@@ -31,13 +119,9 @@ float: right;*/
   width: 400px;
   margin-left: 60px;
   height: 400px;
-  margin-top: 100px;
 
 }
 
-invest-preview {
-  margin-top: 50px;
-}
 
 /*input field for equity quantiy*/
 button, input, optgroup, select, textarea {
@@ -74,6 +158,17 @@ button, input, optgroup, select, textarea {
     box-shadow: none;
     font-size: 30px;
     border-radius: 0;
+}
+
+/*header for equity name*/
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+    font-weight: 700;
+    font-size: 1em;
+    margin-top: -.21425em;
+    line-height: 1.28571429em;
+    height: 2.2em;
+    line-height: 1.1;
+    overflow: auto;
 }
 
 /*invest preview price total*/

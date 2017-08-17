@@ -97,7 +97,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
       <div>
       <Card >
         <Card.Content header={this.props.name} />
-        <Card.Content extra>
+        <Card.Content >
 
             {this.props.price}
 
@@ -106,7 +106,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
         <Card.Content extra >
           <form >
-            <input className="stock-number-input" type="number" min="0" oninput="this.value=this.value.slice(0,this.maxLength||1/1);this.value=(this.value < 1) ? (1/1) : this.value;" value={this.state.shares} onChange={this.handleChange}/>
+            <input className="stock-number-input" type="number" min="0" value={this.state.shares} onChange={this.handleChange}/>
 
           </form>
         </Card.Content>
