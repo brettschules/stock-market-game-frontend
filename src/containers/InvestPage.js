@@ -11,8 +11,12 @@ export default class Name extends Component{
   render(){
     return(
       <div>
-        <SearchBar />
-        <InvestPreviewBody />
+        <div className="search-bar">
+          <SearchBar />
+        </div>
+        <div>
+          <InvestPreviewBody />
+        </div>
       </div>
 
     )

@@ -4,7 +4,6 @@ import ListOfAllCompainesAPI from '../../ListOfAllCompaniesAPI'
 import {Search, Grid, Header} from 'semantic-ui-react'
 import {SelectedEquityFromSearch} from '../../actions/InvestPage/index';
 import {FetchEquitesAlpha} from '../../actions/MainPage/index';
-import {FetchHistoricalData} from '../../actions/InvestPage/index';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import {Line} from 'react-chartjs-2';
@@ -53,8 +52,11 @@ class SearchBar extends Component {
   constructor() {
     super()
     this.state = {
+      "isLoading": false,
+      "results": [],
+      "value": "",
       name: "",
-      displayChart: false,
+      chartData: {}
     }
   }
 
@@ -110,7 +112,7 @@ class SearchBar extends Component {
   }
 
   handleSearchChange = (e, {value}) => {
-    this.setState({isLoading: true, value})
+    this.setState({isLoading: true, value })
 
     setTimeout(() => {
       if (this.state.value.length < 1)
@@ -136,6 +138,7 @@ class SearchBar extends Component {
     const { isLoading, value, results } = this.state
     return (
       <div>
+      <div className="invest-preview">
         <Grid>
           <Grid.Column width={8}>
             <Search
@@ -149,13 +152,15 @@ class SearchBar extends Component {
             />
          </Grid.Column>
        </Grid>
-        { this.state.displayChart ? <Line
+       </div>
+          <div className="line-graph">
+          <Line
           data={this.state.chartData}
-          width={300}
-          height={200}
+          width={100}
+          height={500}
           options={chartOptions}
-        / > : <div>null</div>
-        }
+        />
+        </div>
       </div>
     )
   }
@@ -166,4 +171,4 @@ class SearchBar extends Component {
 
 
 
-export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha, FetchHistoricalData})(SearchBar)
+export default connect(null, {SelectedEquityFromSearch, FetchEquitesAlpha})(SearchBar)
