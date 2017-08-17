@@ -11,14 +11,21 @@ export default class Name extends Component{
   render(){
     return(
       <div>
-        <div className="search-bar">
-          <SearchBar />
-        </div>
-        <div>
-          <InvestPreviewBody />
-        </div>
+        <table>
+          <tr>
+            <td>
+              <div className="invest-preview">
+                <InvestPreviewBody />
+              </div>
+            </td>
+            <td>
+              <div>
+                <SearchBar />
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
-
     )
   }
 }

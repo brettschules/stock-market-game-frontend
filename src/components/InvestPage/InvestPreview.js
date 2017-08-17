@@ -95,26 +95,33 @@ import { Card, Icon, Button } from 'semantic-ui-react';
   render() {
     return (
       <div>
-      <Card>
-        <Card.Content header={this.props.selectedEquity} />
-        <Card.Content>
+      <Card >
+        <Card.Content header={this.props.name} />
+        <Card.Content extra>
+
+            {this.props.price}
 
         </Card.Content>
-          {this.props.price}
-        <Card.Content extra>
-          <Icon name='user' />
+
+
+        <Card.Content extra >
           <form >
-            <input type="number" value={this.state.shares} onChange={this.handleChange}/>
+            <input className="stock-number-input" type="number" min="0" oninput="this.value=this.value.slice(0,this.maxLength||1/1);this.value=(this.value < 1) ? (1/1) : this.value;" value={this.state.shares} onChange={this.handleChange}/>
 
           </form>
         </Card.Content>
-        <Card.Content>
+        <Card.Content >
+        <div className="price-total">
+        <Icon name='dollar' color='green' size="large"/>
           {isNaN(parseFloat(this.props.price, 10) * this.state.shares) ?
             "0.00" :
             (parseFloat(this.props.price, 10) * this.state.shares).toFixed(2)
           }
+          </div>
         </Card.Content>
-        <Button onClick={this.handleSubmit}>Purchase</Button>
+        <div className="purchse-button">
+        <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button>
+        </div>
       </Card>
       <p>
         {this.noteStatus()}

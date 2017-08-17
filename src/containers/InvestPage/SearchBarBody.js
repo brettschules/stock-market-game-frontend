@@ -104,7 +104,7 @@ class SearchBar extends Component {
   }
 
   handleResultSelect = (e, {result}) => {
-    this.props.SelectedEquityFromSearch(result.title)
+    this.props.SelectedEquityFromSearch(result.description)
     this.props.FetchEquitesAlpha(result.title)
     this.fetchHistoricalDataFromAPI(result.title)
     this.setState({displayChart: true})
@@ -131,7 +131,6 @@ class SearchBar extends Component {
   render() {
     <Grid.Column width={8}>
          <Header>State</Header>
-         <pre>{JSON.stringify(this.state, null, 2)}</pre>
          <Header>Options</Header>
          <pre>{JSON.stringify(ListOfAllCompainesAPI, null, 2)}</pre>
        </Grid.Column>
@@ -156,7 +155,7 @@ class SearchBar extends Component {
           <div className="line-graph">
           <Line
           data={this.state.chartData}
-          width={100}
+          width={1500}
           height={500}
           options={chartOptions}
         />

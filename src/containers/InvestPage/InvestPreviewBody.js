@@ -7,6 +7,7 @@ import InvestPreview from '../../components/InvestPage/InvestPreview'
 
  class InvestPreviewBody extends Component {
   render() {
+    console.log(this.props.selectedEquity, "selectedEquity")
     return(
       <div>
         <InvestPreview name={this.props.selectedEquity} price={this.props.price} time={this.props.time}/>
