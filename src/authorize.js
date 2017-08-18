@@ -25,39 +25,3 @@ export default function (AccessComponents, inheritedProps) {
 
   return Authentication
 }
-
-
-// <Beef message={something}
-
-
-//
-// function buildAComponent(component, props, tag) {
-//   class Builder extend Component {
-//     render() {
-//       return <tag><component {...this.props} /></tag>
-//     }
-//   }
-//
-//   return Builder
-// }
-//
-//
-// // in App.js
-//
-// const App = () => { return <p></p> }
-// export default connect({}, {})
-
-
-
-// buildAComponent(<Beef/>, {message}, <h1>) // the return here is a new version of beef incased in h1 tags
-// buildAComponent(<App/>, {}, <p>) // the return here is a new version of App incased in p tags
-// authorize(<App/>, {}) // the return here is a new version of App that now has auth powers
-//
-//
-//
-//
-// class Beef extends Component {
-//   render() {
-//     return (<p>Hello {this.props.message}</p>)
-//   }
-// }

@@ -7,9 +7,23 @@ import Login from './containers/WelcomePage/LoginFormModal'
 import { connect } from 'react-redux'
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
+import {CurrentUser} from './actions/WelcomePage/index'
 
 
 class App extends Component{
+
+  loggedIn = () => {
+    if (localStorage.getItem('jwt') && this.props.isLoggedIn) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  componentWillMount() {
+    this.props.CurrentUser()
+  }
+
 
   render(){
     console.log(this.props, "tessting")
@@ -23,7 +37,7 @@ class App extends Component{
         <div>
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
-            <Route exact path='/login' render={()=> this.props.isLoggedIn ? <Redirect to="/Profile" /> : <Login /> } />
+            <Route exact path='/login' render={()=> this.loggedIn() ? <Redirect to="/Profile" /> : <Login /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
         </div>
       </div>
@@ -40,4 +54,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, null)(App)
+export default connect(mapStateToProps, {CurrentUser})(App)

@@ -5,7 +5,6 @@ import {Menu, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {Logout} from './actions/WelcomePage/index'
 
-
 class NavBar extends Component{
   constructor(){
     super()
@@ -23,11 +22,18 @@ class NavBar extends Component{
     this.setState({ activeItem: name })
   }
 
+  loggedIn = () => {
+    if (localStorage.getItem('jwt') && this.props.isLoggedIn) {
+      return true
+    } else {
+      return false
+    }
+  }
+
 
   render(){
-    console.log(this.props)
+    console.log(this.loggedIn(), "logggggg in????")
     const { activeItem } = this.state
-
     return(
       <div>
         <Menu inverted color="blue" position='left' size="huge">
@@ -35,7 +41,7 @@ class NavBar extends Component{
         <Menu.Item as={Link} to="/Profile" name="Profile" active={activeItem === 'Profile'} onClick={this.handleItemClick} />
         <Menu.Item as={Link} to="/invest" name="Invest" active={activeItem === 'Invest'} onClick={this.handleItemClick} />
         <Menu.Item as={Link} to="/transcations" name="Transcations" active={activeItem === 'Transcations'} onClick={this.handleItemClick} />
-          {this.props.isLoggedIn ?
+          {this.loggedIn() ?
           <Menu.Menu position="right">
             <Menu.Item>
               <Button onClick={this.handleLogoutClick}>
@@ -53,8 +59,8 @@ class NavBar extends Component{
 
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.postLogin.isLoggedIn
+    isLoggedIn: state.postLogin.auth.isLoggedIn
   }
 }
 
-export default connect(mapStateToProps, {Logout, })(NavBar)
+export default connect(mapStateToProps, {Logout})(NavBar)
