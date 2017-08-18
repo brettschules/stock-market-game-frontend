@@ -7,7 +7,7 @@ import Login from './containers/WelcomePage/LoginFormModal'
 import { connect } from 'react-redux'
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
-import {CurrentUser} from './actions/WelcomePage/index'
+import {CurrentUser, FinancialNews} from './actions/WelcomePage/index'
 
 
 class App extends Component{
@@ -22,18 +22,22 @@ class App extends Component{
 
   componentWillMount() {
     this.props.CurrentUser()
+    // this.props.FinancialNews()
   }
 
 
   render(){
-    console.log(this.props, "tessting")
+    // console.log(this.props.financialNews, "tessting")
     return(
       <div>
       <Router>
       <div>
 
 
-      <NavBar />
+        <NavBar />
+        <div>
+          <marquee className="news">This text will scroll from right to left</marquee>
+        </div>
         <div>
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
@@ -51,7 +55,8 @@ class App extends Component{
 function mapStateToProps(state) {
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
+    financialNews: state.news
   }
 }
 
-export default connect(mapStateToProps, {CurrentUser})(App)
+export default connect(mapStateToProps, {CurrentUser, FinancialNews})(App)

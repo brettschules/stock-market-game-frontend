@@ -32,7 +32,6 @@ class NavBar extends Component{
 
 
   render(){
-    console.log(this.loggedIn(), "logggggg in????")
     const { activeItem } = this.state
     return(
       <div>

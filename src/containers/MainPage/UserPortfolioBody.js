@@ -47,7 +47,7 @@ class UserPortfolioBody extends Component{
 function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
-    loading: state.equityInfo.loading
+    loading: state.equityInfo.loading,
   }
 }
 
