@@ -2,11 +2,11 @@
  import {connect} from 'react-redux';
  import UserInfo from '../../components/MainPage/UserInfo'
 
+
  class UserProfile extends Component{
   constructor(){
     super()
   }
-
 
   render(){
     return(
@@ -18,7 +18,6 @@
 }
 
 function mapStateToProps(state) {
-  console.log(state.postLogin.currentUser, "workd")
   return {
     userInfo: state.postLogin.currentUser
   }

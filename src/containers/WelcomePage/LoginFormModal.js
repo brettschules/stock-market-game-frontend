@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {Login} from '../../actions/WelcomePage/index'
 import {Link } from 'react-router-dom'
+import {CurrentUser} from '../../actions/WelcomePage/index'
 import { Button, Header, Form, Modal } from 'semantic-ui-react'
 
 
@@ -25,11 +26,14 @@ class LoginForm extends Component {
     event.preventDefault()
     this.props.Login(this.state)
     this.setState({username: '', password: ''});
+  }
+
+  componentWillUnmount() {
+    this.props.CurrentUser()
 
   }
 
   render(){
-    console.log(this.props)
     return(
       <Modal open={true}>
         <Modal.Header>Please enter you Username and Password</Modal.Header>
@@ -55,4 +59,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, {Login})(LoginForm)
+export default connect(null, {Login, CurrentUser})(LoginForm)

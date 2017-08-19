@@ -27,7 +27,7 @@ class App extends Component{
 
 
   render(){
-    // console.log(this.props.financialNews, "tessting")
+    console.log(this.props.isLoggedIn, "loggin")
     return(
       <div>
       <Router>
@@ -55,7 +55,8 @@ class App extends Component{
 function mapStateToProps(state) {
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
-    financialNews: state.news
+    financialNews: state.news,
+    currentUser: state.postLogin.auth.currentUser
   }
 }
 

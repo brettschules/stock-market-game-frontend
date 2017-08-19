@@ -3,6 +3,7 @@ import { Icon, Image } from 'semantic-ui-react'
 import NumberFormat from 'react-number-format'
 
 
+
 export default class UserInfo extends Component {
   constructor(){
     super()

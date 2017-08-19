@@ -88,12 +88,10 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    handleSubmit = (event) => {
      event.preventDefault
      this.postStockToDB()
-     console.log(this.currentDate(), "date", this.props.time.slice(0,10) )
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
    }
 
   render() {
-    console.log(this.props.searchBarValue, "me")
     return (
       <div>
       <Card >

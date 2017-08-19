@@ -154,7 +154,6 @@ class SearchBar extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     equityName: state.selectedEquity.equity
   }
