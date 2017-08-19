@@ -40,11 +40,28 @@ export function FetchEquitesAlpha(equity) {
   }
 }
 
+function totalUnitsPurchasedForEquities(equities) {
+  var newUserEquitiesObj = {};
+  for (var i = 0; i < equities.length; i++) {
+    if(equities[i].status === "Pending") {
+      continue;
+    } else if (!newUserEquitiesObj.hasOwnProperty(equities[i].name && newUserEquitiesObj[equities[i].status] !== "Pending")) {
+        newUserEquitiesObj[equities[i].name] = 0;
+    }
+    if(equities[i].order === "Buy" && equities[i].status === "Excuted") {
+      newUserEquitiesObj[equities[i].name] += equities[i].units;
+    } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
+      newUserEquitiesObj[equities[i].name] -= equities[i].units;
+    }
+  }
+  return newUserEquitiesObj
+}
+
 export function FetchUserEquities(userId){
   return function(dispatch){
     dispatch({type: LOADINGUSERAPI})
     return fetch(USERAPIURL + userId)
       .then(resp => resp.json())
-      .then(data => dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"]}))
+      .then(data =>  dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"])}))
   }
 }

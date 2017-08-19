@@ -61,16 +61,15 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    }
 
    dataParams = () => {
-     this.props.FetchEquitesAlpha(this.props.name)
 
      return {
-       name: "testStock",
-       symbol: this.props.name,
+       name: this.props.equityName,
+       symbol: this.props.equitySymbol,
        price_purchased: this.props.price,
        units: this.state.shares,
        status: this.checkIfBuyDuringMarketHours(),
        order: "buy",
-       user_id: this.props.userInfo.user_id
+       user_id: this.props.userInfo.id
      }
    }
 
@@ -92,6 +91,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    }
 
   render() {
+    console.log(this.props.searchBarValue, "bar")
     return (
       <div>
       <Card >
@@ -112,7 +112,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
           </div>
         </Card.Content>
         <div className="purchse-button">
-        <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button>
+        <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button> .currentuser.id
         </div>
       </Card>
       <p>
@@ -125,8 +125,10 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
 function mapStateToProps(state) {
   return {
-    userInfo: state.postLogin.userInfo,
-    searchBarValue: state.searchBarValue.value
+    userInfo: state.postLogin.currentUser,
+    searchBarValue: state.searchBarValue.value,
+    equitySymbol: state.selectedEquity.equitySymbol,
+    equityName: state.selectedEquity.equity
   }
 
 }

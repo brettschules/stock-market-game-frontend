@@ -90,7 +90,7 @@ class SearchBar extends Component {
   }
 
   handleResultSelect = (e, {result}) => {
-    this.props.SelectedEquityFromSearch(result.description)
+    this.props.SelectedEquityFromSearch(result.description, result.title)
     this.props.FetchEquitesAlpha(result.title)
     this.fetchHistoricalDataFromAPI(result.title)
     this.setState({displayChart: true})

@@ -1,8 +1,9 @@
-export default function(state = {equity: ""}, action) {
+export default function(state = {equity: "", equitySymbol: ""}, action) {
   switch (action.type) {
     case 'SELECTEDEQUITYFROMSEARCH':
       return {
-        equity: action.payload
+        equity: action.equityName,
+        equitySymbol: action.equitySymbol
       }
     default:
       return state

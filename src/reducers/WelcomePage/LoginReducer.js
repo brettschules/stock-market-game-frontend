@@ -1,6 +1,6 @@
 export default function(state = {postingLoginParams: false, auth: {isLoggedIn: false},
   currentUser: {
-    id: "",
+    id: 0,
     name: "",
     username: "",
     account_balance: "",
@@ -10,13 +10,41 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
 ,action) {
   switch (action.type) {
   case 'POSTLOGINPARAMS':
-    return {postingLoginParams: true, auth: {isLoggedIn: false} }
+    return {postingLoginParams: true, auth: {isLoggedIn: false},
+    currentUser: {
+      id: 0,
+      name: "",
+      username: "",
+      account_balance: "",
+      image: ""
+      } }
   case 'AUTH':
-    return {postingLoginParams: false, auth: {isLoggedIn: true}}
+    return {postingLoginParams: false, auth: {isLoggedIn: true},
+    currentUser: {
+      id: 0,
+      name: "",
+      username: "",
+      account_balance: "",
+      image: ""
+      }}
   case 'ISLOGGEDIN':
-    return {postingLoginParams: false, auth: {isLoggedIn: true}}
+    return {postingLoginParams: false, auth: {isLoggedIn: true},
+    currentUser: {
+      id: 0,
+      name: "",
+      username: "",
+      account_balance: "",
+      image: ""
+      }}
   case 'LOGOUT':
-    return {postingLoginParams: false, auth: {isLoggedIn: false} }
+    return {postingLoginParams: false, auth: {isLoggedIn: false},
+    currentUser: {
+      id: 0,
+      name: "",
+      username: "",
+      account_balance: "",
+      image: ""
+      } }
   case 'CURRENT_USER':
     return {postingLoginParams: false, auth: {isLoggedIn: true},
     currentUser: {

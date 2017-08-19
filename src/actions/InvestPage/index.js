@@ -1,10 +1,11 @@
 export const SELECTEDEQUITYFROMSEARCH = 'SELECTEDEQUITYFROMSEARCH';
 export const SEARCHBARVALUE = 'SEARCHBARVALUE'
 
-export function SelectedEquityFromSearch(equity) {
+export function SelectedEquityFromSearch(equityName, equitySymbol) {
   return {
     type: SELECTEDEQUITYFROMSEARCH,
-    payload: equity
+    equityName: equityName,
+    equitySymbol: equitySymbol
   }
 }
 

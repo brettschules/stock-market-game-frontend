@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { VictoryPie, VictorySharedEvents, VictoryLabel, VictoryBar } from 'victory';
-
+import {connect} from 'react-redux';
 
 const data = [
   {x: "APU", y: 15},
@@ -14,7 +14,7 @@ var CSS_COLOR_NAMES = ["Blue ", "Orange", "DarkSlateBlue", "ForestGreen", "Red",
 
 
 
-export default class NetValueChart extends Component {
+ class NetValueChart extends Component {
   constructor(){
     super()
   }
@@ -66,4 +66,7 @@ export default class NetValueChart extends Component {
   }
 }
 
-// "2017-07-26":"81.9700","2017-07-25":"81.7500","2017-07-24":"82.0600","2017-07-21":"82.1000"
+function mapStateToProps(state) {
+  userEquities: state.userEquities.equites
+}
+export default connect(mapStateToProps, null)(NetValueChart)
