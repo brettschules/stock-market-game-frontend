@@ -46,12 +46,12 @@ function totalUnitsPurchasedForEquities(equities) {
     if(equities[i].status === "Pending") {
       continue;
     } else if (!newUserEquitiesObj.hasOwnProperty(equities[i].name && newUserEquitiesObj[equities[i].status] !== "Pending")) {
-        newUserEquitiesObj[equities[i].name] = 0;
+        newUserEquitiesObj[equities[i].symbol] = 0;
     }
     if(equities[i].order === "Buy" && equities[i].status === "Excuted") {
-      newUserEquitiesObj[equities[i].name] += equities[i].units;
+      newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
-      newUserEquitiesObj[equities[i].name] -= equities[i].units;
+      newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
     }
   }
   return newUserEquitiesObj

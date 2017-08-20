@@ -17,9 +17,8 @@ class UserPortfolioBody extends Component{
   }
 
   fetchEquitesAlpha() {
-      this.state.equities.map(ticker =>
-        this.props.FetchEquitesAlpha(ticker)
-      )
+    Object.keys(this.props.totalUnitsPurchasedForEquities).map(ticker =>
+      this.props.FetchEquitesAlpha(ticker))
   }
 
   componentWillMount() {
@@ -27,7 +26,7 @@ class UserPortfolioBody extends Component{
   }
 
   render(){
-    console.log(this.props.userEquities)
+  console.log(Object.keys(this.props.totalUnitsPurchasedForEquities))
     return(
       <div>
         <div>
@@ -46,11 +45,11 @@ class UserPortfolioBody extends Component{
 }
 
 function mapStateToProps(state) {
-  console.log(state, "total")
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
-    userEquities: state.userEquities.equites
+    totalUnitsPurchasedForEquities: state.userEquities.totalUnitsPurchasedForEquities,
+    userEquities: state.userEquities.equites,
   }
 }
 
