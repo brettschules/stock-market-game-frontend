@@ -63,6 +63,6 @@ export function FetchUserEquities(userId){
     dispatch({type: LOADINGUSERAPI})
     return fetch(USERAPIURL + userId)
       .then(resp => resp.json())
-      .then(data =>  dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"])}))
+      .then(data =>  dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
   }
 }

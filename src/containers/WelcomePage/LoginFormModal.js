@@ -30,7 +30,6 @@ class LoginForm extends Component {
 
   componentWillUnmount() {
     this.props.CurrentUser()
-
   }
 
   render(){

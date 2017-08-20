@@ -11,17 +11,13 @@ import { Button, Header, Image, Modal } from 'semantic-ui-react'
 class UserPortfolioBody extends Component{
   constructor(){
     super()
-    this.state = {
-      equities: ["APU", "KO"]
-    }
   }
 
   fetchEquitesAlpha() {
-    Object.keys(this.props.totalUnitsPurchasedForEquities).map(ticker =>
-      this.props.FetchEquitesAlpha(ticker))
+    this.props.arrayOfEquitySymbols.map(ticker => this.props.FetchEquitesAlpha(ticker))
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchEquitesAlpha()
   }
 
@@ -47,7 +43,7 @@ function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
-    totalUnitsPurchasedForEquities: state.userEquities.totalUnitsPurchasedForEquities,
+    arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
   }
 }
 

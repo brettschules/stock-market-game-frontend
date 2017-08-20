@@ -33,8 +33,6 @@ class App extends Component{
       <div>
       <Router>
       <div>
-
-
         <NavBar />
         <div>
           <marquee className="news">This text will scroll from right to left</marquee>
@@ -50,7 +48,6 @@ class App extends Component{
       </Router>
       </div>
     )
-
   }
 }
 

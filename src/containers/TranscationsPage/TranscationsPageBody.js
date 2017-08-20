@@ -3,10 +3,17 @@ import {connect} from 'react-redux'
 import Transcations from '../../components/TranscationsPage/Transcations'
 import { Table } from 'semantic-ui-react'
 
+import {bindActionCreators} from 'redux';
+// import {FetchUserEquities} from '../actions/MainPage/index'
+
 class TranscationsPage extends Component{
   constructor(){
     super()
   }
+
+  // componentWillMount() {
+  //   this.props.FetchUserEquities()
+  // }
 
   render(){
     return(
@@ -19,13 +26,14 @@ class TranscationsPage extends Component{
              <Table.HeaderCell>Status</Table.HeaderCell>
              <Table.HeaderCell>Units</Table.HeaderCell>
              <Table.HeaderCell>Purchased Price</Table.HeaderCell>
-             <Table.HeaderCell>Total</Table.HeaderCell>
+             <Table.HeaderCell>Cost Basis</Table.HeaderCell>
+             <Table.HeaderCell>Current Price Per Unit</Table.HeaderCell>
+             <Table.HeaderCell>Market Value</Table.HeaderCell>
+             <Table.HeaderCell>Gain/Loss</Table.HeaderCell>
            </Table.Row>
          </Table.Header>
          <Table.Body>
-            {this.props.userEquities.map(equityInfo =>
-              <Transcations equityInfo={equityInfo}/>
-            )}
+          {this.props.userEquities.map(equityInfo => <Transcations equityInfo={equityInfo}/>)}
          </Table.Body>
        </Table>
 

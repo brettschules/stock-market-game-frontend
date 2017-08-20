@@ -11,7 +11,7 @@ export default function (AccessComponents, inheritedProps) {
         this.context.router.history.push('/')
       }
     }
-    componentWillUpstate() {
+    componentWillUpdate() {
       if(!localStorage.getItem('jwt')){
         this.context.router.history.push('/')
       }

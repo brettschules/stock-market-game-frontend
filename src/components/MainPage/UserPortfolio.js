@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Modal, Header } from 'semantic-ui-react'
 import MoreInfoModal from './MoreInfoModal'
+import {connect} from 'react-redux'
 import { Accordion, Icon, Button } from 'semantic-ui-react'
 
 
-export default class UserPortfolio extends Component {
+class UserPortfolio extends Component {
   constructor(){
     super()
     this.state = {
@@ -22,7 +23,16 @@ export default class UserPortfolio extends Component {
       this.setState({ moreInfoModal: false })
   }
 
+  // numberOfShares = () => {
+  //   if(typeof this.props.equityInfo.symbol !== "undefined") {
+  //     return this.props.totalUnitsPurchasedForEquities.this.props.equityInfo.symbol;
+  //   } else {
+  //     return ""
+  //   }
+  // }
+
   render(){
+    // console.log(this.numberOfShares(), "Tell me")
     return (
       <div>
         <Accordion fluid={true} styled className="accordion">
@@ -33,7 +43,7 @@ export default class UserPortfolio extends Component {
         <Accordion.Content>
         <table>
           <th>
-            Number of Shares:
+            Number of Shares: {}
           </th>
           <tr>
             <th id="market-value">
@@ -51,3 +61,11 @@ export default class UserPortfolio extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    totalUnitsPurchasedForEquities: state.userEquities.totalUnitsPurchasedForEquities
+  }
+}
+
+export default connect(mapStateToProps, null)(UserPortfolio)

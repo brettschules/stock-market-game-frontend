@@ -6,7 +6,7 @@ import {FetchUserEquities} from '../actions/MainPage/index'
 
 class TranscationsPage extends Component{
   componentWillMount() {
-    this.props.FetchUserEquities
+    this.props.FetchUserEquities(this.props.currentUserId)
   }
 
   render(){
@@ -18,4 +18,10 @@ class TranscationsPage extends Component{
   }
 }
 
-export default connect(null, {FetchUserEquities})(TranscationsPage)
+function mapStateToProps(state) {
+  return {
+    currentUserId: state.postLogin.currentUser.id
+  }
+}
+
+export default connect(mapStateToProps, {FetchUserEquities})(TranscationsPage)
