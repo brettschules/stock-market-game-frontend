@@ -7,6 +7,7 @@ import Login from './containers/WelcomePage/LoginFormModal'
 import { connect } from 'react-redux'
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
+import TranscationsPage from './containers/TranscationsPage'
 import {CurrentUser, FinancialNews} from './actions/WelcomePage/index'
 
 
@@ -43,6 +44,7 @@ class App extends Component{
             <Route exact path='/profile' component={Auth(MainPage)}  />
             <Route exact path='/login' render={()=> this.loggedIn() ? <Redirect to="/Profile" /> : <Login /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
+            <Route exact path='/transcations' component={Auth(TranscationsPage)} />
         </div>
       </div>
       </Router>

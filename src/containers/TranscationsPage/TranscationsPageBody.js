@@ -1,0 +1,43 @@
+import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import Transcations from '../../components/TranscationsPage/Transcations'
+import { Table } from 'semantic-ui-react'
+
+class TranscationsPage extends Component{
+  constructor(){
+    super()
+  }
+
+  render(){
+    return(
+      <Table celled selectable>
+         <Table.Header>
+           <Table.Row>
+             <Table.HeaderCell>Name</Table.HeaderCell>
+             <Table.HeaderCell>Symbol</Table.HeaderCell>
+             <Table.HeaderCell>Order</Table.HeaderCell>
+             <Table.HeaderCell>Status</Table.HeaderCell>
+             <Table.HeaderCell>Units</Table.HeaderCell>
+             <Table.HeaderCell>Purchased Price</Table.HeaderCell>
+             <Table.HeaderCell>Total</Table.HeaderCell>
+           </Table.Row>
+         </Table.Header>
+         <Table.Body>
+            {this.props.userEquities.map(equityInfo =>
+              <Transcations equityInfo={equityInfo}/>
+            )}
+         </Table.Body>
+       </Table>
+
+    )
+  }
+}
+
+
+function mapStateToProps(state) {
+  return {
+    userEquities: state.userEquities.equites
+  }
+}
+
+export default connect(mapStateToProps, null)(TranscationsPage)

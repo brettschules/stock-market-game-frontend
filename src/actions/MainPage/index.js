@@ -57,6 +57,7 @@ function totalUnitsPurchasedForEquities(equities) {
   return newUserEquitiesObj
 }
 
+
 export function FetchUserEquities(userId){
   return function(dispatch){
     dispatch({type: LOADINGUSERAPI})
