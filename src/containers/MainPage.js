@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserProfile from './MainPage/UserProfile'
 import UserPortfolioBody from './MainPage/UserPortfolioBody'
 import NetValueChart from './MainPage/NetValueChart'
+import DefaultNetValueChart from './MainPage/DefaultNetValueChart'
 import {connect} from 'react-redux'
 import {FetchUserEquities} from "../actions/MainPage/index"
 import {FetchUserEquitiesForProfilePage} from "../actions/MainPage/index"
@@ -30,10 +31,10 @@ class MainPage extends Component {
             }
           </Grid.Column>
           <Grid.Column >
-            <NetValueChart />
+            {this.props.arrayOfEquitySymbols.length !== 0 ? <NetValueChart /> : <DefaultNetValueChart />}
           </Grid.Column>
           <Grid.Column >
-            {this.props.arrayOfEquitySymbols.length != 0 ? <UserPortfolioBody arrayOfEquitySymbols={this.props.arrayOfEquitySymbols} />
+            {this.props.arrayOfEquitySymbols.length !==0  ? <UserPortfolioBody arrayOfEquitySymbols={this.props.arrayOfEquitySymbols} />
             : ""}
           </Grid.Column>
           </Grid.Row>
