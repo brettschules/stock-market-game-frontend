@@ -17,9 +17,7 @@ class UserPortfolioBody extends Component{
   }
 
   componentWillMount() {
-    if (this.props.arrayOfEquitySymbols.length !== 0) {
-      this.fetchEquitesAlpha()
-    }
+    this.fetchEquitesAlpha()
   }
 
   render(){
@@ -44,7 +42,7 @@ function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
-    arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
+    // arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
   }
 }
 

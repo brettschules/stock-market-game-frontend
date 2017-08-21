@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 import {FetchUserEquities} from "../actions/MainPage/index"
 import bindActionCreators from 'redux'
 import { Grid, Image } from 'semantic-ui-react'
-
 import '../App.css'
 
 class MainPage extends Component {
@@ -16,8 +15,6 @@ class MainPage extends Component {
       this.props.FetchUserEquities(this.props.currentUserId)
     }
   }
-
-
 
   render() {
     console.log(this.props.userEquities.length !== 0, "testinggg", this.props.userEquities)
@@ -34,7 +31,8 @@ class MainPage extends Component {
             <NetValueChart />
           </Grid.Column>
           <Grid.Column >
-            <UserPortfolioBody />
+            {this.props.arrayOfEquitySymbols.length != 0 ? <UserPortfolioBody arrayOfEquitySymbols={this.props.arrayOfEquitySymbols} />
+            : ""}
           </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -46,7 +44,8 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     currentUserId: state.postLogin.currentUser.id,
-    userEquities: state.userEquities.equites
+    userEquities: state.userEquities.equites,
+    arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
 
   }
 }
