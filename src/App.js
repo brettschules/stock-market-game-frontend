@@ -5,6 +5,8 @@ import MainPage from './containers/MainPage'
 import WelcomePage from './containers/WelcomePage'
 import Login from './containers/WelcomePage/LoginFormModal'
 import { connect } from 'react-redux'
+import {FetchUserEquities} from "./actions/MainPage/index"
+import bindActionCreators from 'redux'
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
 import TranscationsPage from './containers/TranscationsPage'
@@ -28,7 +30,6 @@ class App extends Component{
 
 
   render(){
-    console.log(this.props.isLoggedIn, "loggin")
     return(
       <div>
       <Router>
@@ -52,11 +53,12 @@ class App extends Component{
 }
 
 function mapStateToProps(state) {
+  // console.log(state, "stateee")
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
     financialNews: state.news,
-    currentUser: state.postLogin.auth.currentUser
+    currentUser: state.postLogin.currentUser
   }
 }
 
-export default connect(mapStateToProps, {CurrentUser, FinancialNews})(App)
+export default connect(mapStateToProps, {FetchUserEquities, CurrentUser, FinancialNews})(App)

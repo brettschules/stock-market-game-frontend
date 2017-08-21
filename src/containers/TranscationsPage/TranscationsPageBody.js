@@ -11,10 +11,6 @@ class TranscationsPage extends Component{
     super()
   }
 
-  // componentWillMount() {
-  //   this.props.FetchUserEquities()
-  // }
-
   render(){
     return(
       <Table celled selectable>

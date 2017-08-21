@@ -7,7 +7,6 @@ import ReactInterval from 'react-interval';
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 
-
 class UserPortfolioBody extends Component{
   constructor(){
     super()

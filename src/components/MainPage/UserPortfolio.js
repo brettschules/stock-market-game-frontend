@@ -23,16 +23,18 @@ class UserPortfolio extends Component {
       this.setState({ moreInfoModal: false })
   }
 
-  // numberOfShares = () => {
-  //   if(typeof this.props.equityInfo.symbol !== "undefined") {
-  //     return this.props.totalUnitsPurchasedForEquities.this.props.equityInfo.symbol;
-  //   } else {
-  //     return ""
-  //   }
-  // }
+  numberOfShares = () => {
+    if(Object.keys(this.props.totalUnitsPurchasedForEquities).length !== 0 && typeof this.props.equityInfo.symbol !== "undefined") {
+      return this.props.totalUnitsPurchasedForEquities
+    } else {
+      return ""
+    }
+
+  }
 
   render(){
-    // console.log(this.numberOfShares(), "Tell me")
+    // console.log(this.props.equityInfo.symbol, "symbol", this.props.totalUnitsPurchasedForEquities, "units" )
+    console.log(this.numberOfShares(), "tel me")
     return (
       <div>
         <Accordion fluid={true} styled className="accordion">

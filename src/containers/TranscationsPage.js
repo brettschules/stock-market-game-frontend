@@ -6,7 +6,10 @@ import {FetchUserEquities} from '../actions/MainPage/index'
 
 class TranscationsPage extends Component{
   componentWillMount() {
-    this.props.FetchUserEquities(this.props.currentUserId)
+      if (this.props.currentUserId !== 0) {
+        this.props.FetchUserEquities(this.props.currentUserId)
+      }
+
   }
 
   render(){

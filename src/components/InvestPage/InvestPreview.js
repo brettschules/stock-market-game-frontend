@@ -112,7 +112,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
           </div>
         </Card.Content>
         <div className="purchse-button">
-        <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button> .currentuser.id
+        <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button>
         </div>
       </Card>
       <p>

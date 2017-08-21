@@ -15,7 +15,7 @@ export default class Transcations extends Component{
      }
    }
 
-   componentDidMount(){
+   componentWillMount(){
      this.fetchEquityPrice(this.props.equityInfo.symbol)
    }
 
@@ -26,6 +26,7 @@ export default class Transcations extends Component{
       .then(resp => resp.json())
       .then(data =>
         this.setState({
+
           equityPrice: this.getLatestStockPrice(data["Time Series (1min)"])
         })
       )
@@ -41,7 +42,6 @@ export default class Transcations extends Component{
          return ""
        }
      }
-
      return first["2. high"]
    }
 
@@ -54,6 +54,8 @@ export default class Transcations extends Component{
    }
 
   render(){
+
+    console.log(this.props.equityInfo, "sybmol")
     return(
       <Table.Row>
         <Table.Cell>{this.props.equityInfo.name}</Table.Cell>
