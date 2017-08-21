@@ -3,9 +3,6 @@ import {connect} from 'react-redux'
 import Transcations from '../../components/TranscationsPage/Transcations'
 import { Table } from 'semantic-ui-react'
 
-import {bindActionCreators} from 'redux';
-// import {FetchUserEquities} from '../actions/MainPage/index'
-
 class TranscationsPage extends Component{
   constructor(){
     super()

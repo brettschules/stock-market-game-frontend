@@ -17,7 +17,9 @@ class UserPortfolioBody extends Component{
   }
 
   componentWillMount() {
-    this.fetchEquitesAlpha()
+    if (this.props.arrayOfEquitySymbols.length !== 0) {
+      this.fetchEquitesAlpha()
+    }
   }
 
   render(){

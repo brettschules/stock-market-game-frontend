@@ -17,9 +17,9 @@ export default class UserInfo extends Component {
             <p id="joined">Joined in 2017</p>
         </div>
          <div className="profile-networth">
-          <h4><b id="user-profile-net">Your current Net Value Worth:</b></h4>
+          <h4><b id="user-profile-net">Your current Net Value Worth: </b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="huge"/> <span id="user-money">0.00</span>
+              <Icon name='dollar' color='green' size="huge"/> <span id="user-money">{this.props.netValueWorth.toFixed(2)}</span>
             </div>
           </div>
           <div className="account-balance">

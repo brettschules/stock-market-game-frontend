@@ -17,13 +17,18 @@ class MainPage extends Component {
     }
   }
 
+
+
   render() {
+    console.log(this.props.userEquities.length !== 0, "testinggg", this.props.userEquities)
     return (
       <div>
         <Grid divided='vertically' >
           <Grid.Row columns={3} >
           <Grid.Column  >
-            <UserProfile />
+            {this.props.userEquities.length !== 0 ? <UserProfile userEquities={this.props.userEquities}/>
+            : ""
+            }
           </Grid.Column>
           <Grid.Column >
             <NetValueChart />
@@ -40,7 +45,9 @@ class MainPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    currentUserId: state.postLogin.currentUser.id
+    currentUserId: state.postLogin.currentUser.id,
+    userEquities: state.userEquities.equites
+
   }
 }
 

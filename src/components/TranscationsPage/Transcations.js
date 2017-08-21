@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import {FetchEquitesAlpha} from '../../actions/MainPage/index';
 import { Table, Button, Modal } from 'semantic-ui-react'
+
 const KEY = "MV8HZ4PAMIW9SLYH"
 const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="

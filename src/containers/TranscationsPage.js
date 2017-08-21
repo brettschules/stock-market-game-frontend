@@ -9,7 +9,6 @@ class TranscationsPage extends Component{
       if (this.props.currentUserId !== 0) {
         this.props.FetchUserEquities(this.props.currentUserId)
       }
-
   }
 
   render(){

@@ -31,6 +31,7 @@ class LoginForm extends Component {
   componentWillUnmount() {
     this.props.CurrentUser()
   }
+  // <Button type="submit" onClick={this.handleSubmit} >Login </Button>
 
   render(){
     return(
@@ -38,20 +39,20 @@ class LoginForm extends Component {
         <Modal.Header>Please enter you Username and Password</Modal.Header>
         <Modal.Content >
       <Modal.Description>
-      <form >
+      <form onSubmit={this.handleSubmit}>
         <label>
           Username
         </label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/>
+          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange} required/>
         <label>
           Password
         </label>
-        <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange}/>
+        <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange} required/>
+        <input type="submit" value="login"/>
       </form>
       </Modal.Description>
       </Modal.Content>
       <Button as={Link} Link to={`/`}>Cancel</Button>
-      <Button type="submit" onClick={this.handleSubmit} >Login </Button>
       </Modal>
 
     )
