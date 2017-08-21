@@ -68,7 +68,6 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 function mapStateToProps(state) {
   return {
     userInfo: state.postLogin.currentUser
-    // userEquities: state.userEquities.equites
   }
 }
 

@@ -43,18 +43,18 @@ export function FetchEquitesAlpha(equity) {
 function totalUnitsPurchasedForEquities(equities) {
   var newUserEquitiesObj = {};
   for (var i = 0; i < equities.length; i++) {
-    if(equities[i].status === "Pending") {
+    if (equities[i].status === "Pending") {
       continue;
     } else if (!newUserEquitiesObj.hasOwnProperty(equities[i].name && newUserEquitiesObj[equities[i].status] !== "Pending")) {
         newUserEquitiesObj[equities[i].symbol] = 0;
     }
-    if(equities[i].order === "Buy" && equities[i].status === "Excuted") {
+    if(equities[i].order === "buy" && equities[i].status === "Excuted") {
       newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
       newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
     }
   }
-  return newUserEquitiesObj
+   return newUserEquitiesObj
 }
 
 
