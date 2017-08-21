@@ -28,9 +28,9 @@ class LoginForm extends Component {
     this.setState({username: '', password: ''});
   }
 
-  // componentWillUnmount() {
-  //   this.props.CurrentUser()
-  // }
+  componentWillUnmount() {
+    this.props.CurrentUser()
+  }
 
   render(){
     return(

@@ -53,7 +53,6 @@ class App extends Component{
 }
 
 function mapStateToProps(state) {
-  // console.log(state, "stateee")
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
     financialNews: state.news,

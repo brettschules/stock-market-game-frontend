@@ -55,7 +55,6 @@ export default class Transcations extends Component{
 
   render(){
 
-    console.log(this.props.equityInfo, "sybmol")
     return(
       <Table.Row>
         <Table.Cell>{this.props.equityInfo.name}</Table.Cell>

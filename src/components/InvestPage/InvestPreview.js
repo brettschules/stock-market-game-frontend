@@ -91,7 +91,6 @@ import { Card, Icon, Button } from 'semantic-ui-react';
    }
 
   render() {
-    console.log(this.props.searchBarValue, "bar")
     return (
       <div>
       <Card >

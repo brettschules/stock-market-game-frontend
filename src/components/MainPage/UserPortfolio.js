@@ -24,17 +24,18 @@ class UserPortfolio extends Component {
   }
 
   numberOfShares = () => {
-    if(Object.keys(this.props.totalUnitsPurchasedForEquities).length !== 0 && typeof this.props.equityInfo.symbol !== "undefined") {
-      return this.props.totalUnitsPurchasedForEquities
+    let equitiesObject = {}
+    let symbol = ""
+    if(this.props.totalUnitsPurchasedForEquities.length !== 0 && this.props.equityInfo.symbol !== "") {
+      equitiesObject = this.props.totalUnitsPurchasedForEquities
+      symbol = this.props.equityInfo.symbol
     } else {
       return ""
     }
-
+    return equitiesObject[symbol]
   }
 
   render(){
-    // console.log(this.props.equityInfo.symbol, "symbol", this.props.totalUnitsPurchasedForEquities, "units" )
-    console.log(this.numberOfShares(), "tel me")
     return (
       <div>
         <Accordion fluid={true} styled className="accordion">
@@ -45,11 +46,11 @@ class UserPortfolio extends Component {
         <Accordion.Content>
         <table>
           <th>
-            Number of Shares: {}
+            Number of Shares: {this.numberOfShares()}
           </th>
           <tr>
             <th id="market-value">
-              Market Value:
+              Market Value:   {this.numberOfShares() * this.props.equityInfo.price}
             </th>
             <td id="more-info" onClick={this.handleMoreInfoClick}>
               <Button>More Info</Button>

@@ -29,9 +29,9 @@ class UserPortfolioBody extends Component{
         />
         </div>
         <div>
-          {this.props.equityInfo.map(equity =>
+          {this.props.equityInfo.length !== 0 ? this.props.equityInfo.map(equity =>
             <UserPortfolio equityInfo={equity} />
-          )}
+          ) : ""}
         </div>
       </div>
     )
