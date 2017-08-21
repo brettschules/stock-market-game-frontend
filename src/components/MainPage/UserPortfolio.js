@@ -42,7 +42,7 @@ class UserPortfolio extends Component {
               <th>Number of Shares: {this.numberOfShares()}</th>
               <tr>
                 <th id="market-value">
-                  Market Value:   {this.numberOfShares() * this.props.equityInfo.price}
+                  Market Value:   {parseFloat(this.numberOfShares() * this.props.equityInfo.price, 10).toFixed(2).toLocaleString()}
                 </th>
                 <td id="more-info" onClick={this.handleMoreInfoClick}>
                   <Button>More Info</Button>

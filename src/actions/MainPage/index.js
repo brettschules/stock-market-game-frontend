@@ -3,7 +3,7 @@ export const LOADINGEQUITYINFO = 'LOADINGEQUITYINFO'
 export const MOREINFOCLICK = 'MOREINFOCLICK'
 export const LOADINGUSERAPI = 'LOADINGUSERAPI'
 export const FETCHUSEREQUITIES = 'FETCHUSEREQUITIES'
-
+export const FETCHUSEREQUITIESFORPROFILEPAGE = `FETCHUSEREQUITIESFORPROFILEPAGE`
 
 const KEY = "MV8HZ4PAMIW9SLYH"
 const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
@@ -64,5 +64,14 @@ export function FetchUserEquities(userId){
     return fetch(USERAPIURL + userId)
       .then(resp => resp.json())
       .then(data =>  dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
+  }
+}
+
+export function FetchUserEquitiesForProfilePage(userId){
+  return function(dispatch){
+    dispatch({type: LOADINGUSERAPI})
+    return fetch(USERAPIURL + userId)
+      .then(resp => resp.json())
+      .then(data =>  dispatch({type: FETCHUSEREQUITIESFORPROFILEPAGE, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
   }
 }

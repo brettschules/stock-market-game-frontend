@@ -4,6 +4,7 @@ import UserPortfolioBody from './MainPage/UserPortfolioBody'
 import NetValueChart from './MainPage/NetValueChart'
 import {connect} from 'react-redux'
 import {FetchUserEquities} from "../actions/MainPage/index"
+import {FetchUserEquitiesForProfilePage} from "../actions/MainPage/index"
 import bindActionCreators from 'redux'
 import { Grid, Image } from 'semantic-ui-react'
 import '../App.css'
@@ -13,6 +14,7 @@ class MainPage extends Component {
   componentWillMount(){
     if (this.props.currentUserId !== 0) {
       this.props.FetchUserEquities(this.props.currentUserId)
+      this.props.FetchUserEquitiesForProfilePage(this.props.currentUserId)
     }
   }
 
@@ -45,9 +47,8 @@ function mapStateToProps(state) {
   return {
     currentUserId: state.postLogin.currentUser.id,
     userEquities: state.userEquities.equites,
-    arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
-
+    arrayOfEquitySymbols: state.userEquitiesForProfilePage.arrayOfEquitySymbolsForProfilePage
   }
 }
 
-export default connect(mapStateToProps, {FetchUserEquities})(MainPage)
+export default connect(mapStateToProps, {FetchUserEquities, FetchUserEquitiesForProfilePage})(MainPage)

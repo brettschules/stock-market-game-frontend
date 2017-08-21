@@ -60,4 +60,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {FetchUserEquities, CurrentUser, FinancialNews})(App)
+export default connect(mapStateToProps, {CurrentUser, FinancialNews})(App)
