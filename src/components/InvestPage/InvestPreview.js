@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {FetchEquitesAlpha} from '../../actions/MainPage/index';
 import {bindActionCreators} from 'redux';
+import {SearchBarValue} from '../../actions/InvestPage/index';
 import { Card, Icon, Button } from 'semantic-ui-react';
 
 
  class InvestPreview extends Component {
-   constructor() {
-     super()
-     this.state = {
-       shares: 0,
-       totalEquityPrice: 0
-     }
+  constructor() {
+    super()
+    this.state = {
+      shares: 0,
+    }
    }
 
   //  currentFullTime = () => {
@@ -48,6 +48,8 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
    checkIfBuyDuringMarketHours = () => {
      if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time.slice(0,10) === this.currentDate()) {
+       this.props.SearchBarValue("")
+       this.setState({shares: 0})
        return "Excuted"
      } else {
        return "Pending"
@@ -86,7 +88,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 
   updateUserAccountBalanceToDB = () => {
     const postData = {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -98,6 +100,8 @@ import { Card, Icon, Button } from 'semantic-ui-react';
   shouldUpdateAccountBalance = () => {
     if (this.checkIfBuyDuringMarketHours() === "Excuted") {
        this.updateUserAccountBalanceToDB()
+       this.props.SearchBarValue("")
+       this.setState({shares: 0})
     } else {
       return null
     }
@@ -108,6 +112,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
      this.postStockToDB()
      this.shouldUpdateAccountBalance()
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
+
    }
 
   handleTotalEquityPrice = () => {
@@ -121,8 +126,6 @@ import { Card, Icon, Button } from 'semantic-ui-react';
   }
 
   render() {
-
-    console.log( this.handleAccountBalanceRemaining(), "Account");
     return (
       <div>
       <Card >
@@ -162,4 +165,4 @@ function mapStateToProps(state) {
   }
 
 }
-export default connect(mapStateToProps, {FetchEquitesAlpha})(InvestPreview)
+export default connect(mapStateToProps, {FetchEquitesAlpha, SearchBarValue})(InvestPreview)
