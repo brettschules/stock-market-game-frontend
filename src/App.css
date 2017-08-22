@@ -2,7 +2,46 @@
 /*NavBar*/
 .ui.inverted.blue.menu, .ui.inverted.menu .blue.active.item {
     background-color: #2185d0;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
+}
+
+.ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
+    width: 250px!important;
+    height: auto;
+    font-size: 1rem;
+    margin-left: 0px!important;
+}
+
+/*---------------------WELCOME_PAGE-----------------------*/
+.background-image {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/20/e9/95/20e995b3230740e1051c509c12a01f3d.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/*---------------------FOOTER_PAGE-----------------------*/
+footer {
+  margin-left: 20px;
+  margin-top:
+}
+
+h1.welcome {
+    margin-top: 0;
+    text-align: center;
+    font-weight:normal;
+    text-transform:uppercase;
+    color:rgb(247, 247, 247);
+    letter-spacing:1pt;
+    word-spacing:-1pt;
+    font-size:38px;
+    font-family:times new roman, times, serif;
+    line-height:1;
+
+}
+
+.login-button {
+  text-align: center;
+  margin-top: 300px;
 }
 
 
@@ -79,8 +118,29 @@
     margin-left: 30px;
 }
 
+.pie-chart {
+  margin-top: 50px;
+}
+/*container holding accordion*/
 
+.accordion-portfolio {
+  margin-top: 30px;
+  margin-right: 50px;
+}
 
+/*font in the accordion*/
+.ui.accordion .title:not(.ui) {
+    padding: .5em 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1em;
+    color: rgba(0,0,0,.87);
+    font-size: 30px;
+}
+
+child, .ui.styled.accordion>.title:first-child {
+    border-top: none;
+    height: 60px;
+}
 /* On mouse-over, add a deeper shadow */
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -88,10 +148,31 @@
 
 /* Add some padding inside the card container */
 .container {
-    padding: 2px 16px;
+  padding: 2px 16px;
+}
+/*---------------------LOGIN_PAGE-----------------------*/
+.hide-button {
+  background-color: white;
+  border: none;
 }
 
+input.login-input {
+  margin-left: 0px;
+  width: 200px;
+}
+label.login-label {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
 
+.cancel-page-button {
+  margin-left: 20px;
+}
+
+.login-page-button {
+  margin-left: 450px;
+}
 /*---------------------INVEST_PAGE-----------------------*/
 /*UserPortfolio */
 th, td {

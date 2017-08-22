@@ -9,6 +9,7 @@ import {FetchUserEquities} from "./actions/MainPage/index"
 import bindActionCreators from 'redux'
 import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
+import Footer from'./Footer'
 import TranscationsPage from './containers/TranscationsPage'
 import {CurrentUser, FinancialNews} from './actions/WelcomePage/index'
 
@@ -47,6 +48,9 @@ class App extends Component{
         </div>
       </div>
       </Router>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     )
   }

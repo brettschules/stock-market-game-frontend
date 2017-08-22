@@ -13,7 +13,6 @@ export default class MoreInfoModal extends Component{
       <Modal open={this.props.open}>
         <Modal.Header> Finacial Information for: {this.props.equitySymbol}</Modal.Header>
         <Modal.Content image>
-          <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
           <Modal.Description>
             <table>
               <tr>

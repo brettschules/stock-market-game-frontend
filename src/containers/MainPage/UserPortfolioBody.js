@@ -28,7 +28,7 @@ class UserPortfolioBody extends Component{
           callback={() => this.fetchEquitesAlpha()}
         />
         </div>
-        <div>
+        <div className="accordion-portfolio">
           {this.props.equityInfo.length !== 0 ? this.props.equityInfo.map(equity =>
             <UserPortfolio equityInfo={equity} />
           ) : ""}
@@ -42,7 +42,6 @@ function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
-    // arrayOfEquitySymbols: state.userEquities.arrayOfEquitySymbols
   }
 }
 

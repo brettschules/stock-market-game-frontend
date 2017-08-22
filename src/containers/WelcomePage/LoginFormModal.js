@@ -36,23 +36,28 @@ class LoginForm extends Component {
   render(){
     return(
       <Modal open={true}>
-        <Modal.Header>Please enter you Username and Password</Modal.Header>
+        <Modal.Header>Please enter your Username and Password</Modal.Header>
         <Modal.Content >
       <Modal.Description>
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label className="login-label">
           Username
         </label>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange} required/>
-        <label>
+          <input className="login-input" type="text" name="username" value={this.state.username} onChange={this.handleOnChange} required/>
+        <label className="login-label">
           Password
         </label>
-        <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange} required/>
-        <input type="submit" value="login"/>
+        <input className="login-input" type="text" name="password" value={this.state.password} onChange={this.handleOnChange} required/>
+        <input className="hide-button" type="submit" value=""/>
       </form>
       </Modal.Description>
       </Modal.Content>
-      <Button as={Link} Link to={`/`}>Cancel</Button>
+        <span className="cancel-page-button">
+          <Button secondary size="large" as={Link} Link to={`/`}>Cancel</Button>
+        </span>
+        <span className="login-page-button">
+          <Button color="blue" type="submit" onClick={this.handleSubmit} >Login </Button>
+        </span>
       </Modal>
 
     )

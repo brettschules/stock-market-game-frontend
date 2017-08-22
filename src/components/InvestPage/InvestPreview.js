@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {FetchEquitesAlpha} from '../../actions/MainPage/index';
 import {bindActionCreators} from 'redux';
 import {SearchBarValue} from '../../actions/InvestPage/index';
-import { Card, Icon, Button } from 'semantic-ui-react';
+import { Card, Icon, Button, Image } from 'semantic-ui-react';
 
 
  class InvestPreview extends Component {

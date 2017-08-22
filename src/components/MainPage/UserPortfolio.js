@@ -32,7 +32,7 @@ class UserPortfolio extends Component {
   render() {
     return (
       <div>
-        <Accordion fluid={true} styled className="accordion">
+        <Accordion fluid={true} styled >
           <Accordion.Title >
             <Icon name='dropdown' />
             {this.props.equityInfo.symbol} {this.props.equityInfo.price}<span className="tickerPrice"></span>

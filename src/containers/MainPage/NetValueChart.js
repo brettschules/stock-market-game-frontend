@@ -26,8 +26,8 @@ var CSS_COLOR_NAMES = ["Blue ", "Orange", "DarkSlateBlue", "ForestGreen", "Red",
   render(){
 
     return(
-    <div>
-      <svg viewBox="0 0 450 350">
+    <div className="pie-chart">
+      <svg viewBox="0 -30 450 350">
         <VictorySharedEvents
         events={[{
           childName: ["pie"],

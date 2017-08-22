@@ -33,7 +33,7 @@ class MainPage extends Component {
           <Grid.Column >
             {this.props.arrayOfEquitySymbols.length !== 0 ? <NetValueChart /> : <DefaultNetValueChart />}
           </Grid.Column>
-          <Grid.Column >
+          <Grid.Column>
             {this.props.arrayOfEquitySymbols.length !==0  ? <UserPortfolioBody arrayOfEquitySymbols={this.props.arrayOfEquitySymbols} />
             : ""}
           </Grid.Column>
