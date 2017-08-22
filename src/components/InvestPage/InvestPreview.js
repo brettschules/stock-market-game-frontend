@@ -10,7 +10,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
      super()
      this.state = {
        shares: 0,
-       balance: 10000
+       totalEquityPrice: 0
      }
    }
 
@@ -79,18 +79,50 @@ import { Card, Icon, Button } from 'semantic-ui-react';
        headers: {
          'Content-Type': 'application/json'
        },
-       body: JSON.stringify(this.dataParams(this.dataParams()))
+       body: JSON.stringify(this.dataParams())
      }
      fetch('http://localhost:3000/api/v1/stocks', postData)
    }
 
-   handleSubmit = (event) => {
+  updateUserAccountBalanceToDB = () => {
+    const postData = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({account_balance: this.handleAccountBalanceRemaining()})
+     }
+    fetch(`http://localhost:3000/api/v1/users/${this.props.currentUserInfo.id}`, postData)
+  }
+
+  shouldUpdateAccountBalance = () => {
+    if (this.checkIfBuyDuringMarketHours() === "Excuted") {
+       this.updateUserAccountBalanceToDB()
+    } else {
+      return null
+    }
+  }
+
+  handleSubmit = (event) => {
      event.preventDefault
      this.postStockToDB()
+     this.shouldUpdateAccountBalance()
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
    }
 
+  handleTotalEquityPrice = () => {
+    if (isNaN(parseFloat(this.props.price, 10) * this.state.shares))
+      return "0.00"
+    return (parseFloat(this.props.price, 10) * this.state.shares).toFixed(2)
+   }
+
+  handleAccountBalanceRemaining = () => {
+    return parseFloat(this.props.currentUserInfo.account_balance - this.handleTotalEquityPrice(), 10)
+  }
+
   render() {
+
+    console.log( this.handleAccountBalanceRemaining(), "Account");
     return (
       <div>
       <Card >
@@ -104,10 +136,7 @@ import { Card, Icon, Button } from 'semantic-ui-react';
         <Card.Content >
         <div className="price-total">
         <Icon name='dollar' color='green' size="large"/>
-          {isNaN(parseFloat(this.props.price, 10) * this.state.shares) ?
-            "0.00" :
-            (parseFloat(this.props.price, 10) * this.state.shares).toFixed(2)
-          }
+          {this.handleTotalEquityPrice()}
           </div>
         </Card.Content>
         <div className="purchse-button">
@@ -123,11 +152,13 @@ import { Card, Icon, Button } from 'semantic-ui-react';
 }
 
 function mapStateToProps(state) {
+  console.log(state, "currentUserInfo")
   return {
     userInfo: state.postLogin.currentUser,
     searchBarValue: state.searchBarValue.value,
     equitySymbol: state.selectedEquity.equitySymbol,
-    equityName: state.selectedEquity.equity
+    equityName: state.selectedEquity.equity,
+    currentUserInfo: state.postLogin.currentUser
   }
 
 }

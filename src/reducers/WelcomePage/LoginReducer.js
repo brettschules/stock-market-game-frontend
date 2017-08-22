@@ -3,7 +3,7 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
     id: 0,
     name: "",
     username: "",
-    account_balance: "",
+    account_balance: 0,
     image: ""
     }
   }
@@ -15,7 +15,7 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
       id: 0,
       name: "",
       username: "",
-      account_balance: "",
+      account_balance: 0,
       image: ""
       } }
   case 'AUTH':
@@ -24,7 +24,7 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
       id: 0,
       name: "",
       username: "",
-      account_balance: "",
+      account_balance: 0,
       image: ""
       }}
   case 'ISLOGGEDIN':
@@ -33,7 +33,7 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
       id: 0,
       name: "",
       username: "",
-      account_balance: "",
+      account_balance: 0,
       image: ""
       }}
   case 'LOGOUT':
@@ -42,7 +42,7 @@ export default function(state = {postingLoginParams: false, auth: {isLoggedIn: f
       id: 0,
       name: "",
       username: "",
-      account_balance: "",
+      account_balance: 0,
       image: ""
       } }
   case 'CURRENT_USER':
