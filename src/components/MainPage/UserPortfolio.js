@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Header } from 'semantic-ui-react'
 import MoreInfoModal from './MoreInfoModal'
+import SellModal from './SellModal'
 import {connect} from 'react-redux'
 import { Accordion, Icon, Button } from 'semantic-ui-react'
 
@@ -9,7 +10,8 @@ class UserPortfolio extends Component {
   constructor(){
     super()
     this.state = {
-      moreInfoModal: false
+      moreInfoModal: false,
+      sellModal: false
     }
   }
 
@@ -21,6 +23,16 @@ class UserPortfolio extends Component {
   handleMoreInfoClose = () => {
     if (this.state.moreInfoModal)
       this.setState({ moreInfoModal: false })
+  }
+
+  handleSellModalOpen = () => {
+    if (this.state.sellModal === false)
+      this.setState({ sellModal: true })
+  }
+
+  handleSellModalClose = () => {
+    if (this.state.sellModal)
+      this.setState({ sellModal: false })
   }
 
   numberOfShares = () => {
@@ -35,7 +47,7 @@ class UserPortfolio extends Component {
         <Accordion fluid={true} styled >
           <Accordion.Title >
             <Icon name='dropdown' />
-            {this.props.equityInfo.symbol} {this.props.equityInfo.price}<span className="tickerPrice"></span>
+            {this.props.equityInfo.symbol} {this.props.equityInfo.price}  <span className="sell-button"><Button onClick={this.handleSellModalOpen} floated="right" color="red">Sell</Button></span><span className="tickerPrice"></span>
           </Accordion.Title>
           <Accordion.Content>
             <table>
@@ -52,6 +64,7 @@ class UserPortfolio extends Component {
           </Accordion.Content>
         </Accordion>
         <MoreInfoModal open={this.state.moreInfoModal} handleMoreInfoClose={this.handleMoreInfoClose} equitySymbol={this.props.equityInfo.symbol}/>
+        <SellModal open={this.state.sellModal} handleMoreInfoClose={this.handleSellModalClose} numberOfShares={this.numberOfShares()} equitySymbol={this.props.equityInfo.symbol} equityPrice={this.props.equityInfo.price}/>
       </div>
     )
   }

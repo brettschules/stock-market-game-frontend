@@ -11,10 +11,19 @@ import NavBar from './NavBar'
 import InvestPage from './containers/InvestPage'
 import Footer from'./Footer'
 import TranscationsPage from './containers/TranscationsPage'
-import {CurrentUser, FinancialNews} from './actions/WelcomePage/index'
+import {CurrentUser} from './actions/WelcomePage/index'
 
+const KEY = "MV8HZ4PAMIW9SLYH"
+const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
+const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 
-class App extends Component{
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      marqueequityInfo: [{}]
+    }
+  }
 
   loggedIn = () => {
     if (localStorage.getItem('jwt') && this.props.isLoggedIn) {
@@ -24,13 +33,57 @@ class App extends Component{
     }
   }
 
+// Fetched API locally to get batch data which is not possible with redux
+
   componentWillMount() {
     this.props.CurrentUser()
-    // this.props.FinancialNews()
+   this.arrayOfEquitiesToFetch()
+  }
+
+   getLatestStockPrice = (equityObj) => {
+     let first;
+     for (var i in equityObj) {
+       if (equityObj.hasOwnProperty(i)) {
+         first = equityObj[i];
+         break;
+       } else {
+         return ""
+       }
+     }
+     return first["2. high"]
+   }
+
+  fetchEquityPrice = (equity) => {
+     fetch(BASEURL + equity + ONEMINUTEINVERVALS + KEY)
+     .then(resp => resp.json())
+     .then(data =>
+       this.setState({
+         marqueequityInfo: [...this.state.marqueequityInfo, this.getLatestStockPrice(data["Time Series (1min)"])]
+       })
+     )
+  }
+
+
+
+  arrayOfEquitiesToFetch = () => {
+    const equities = ["IXIC", "DJI", "NDAQ", "AAPL", "KO", "AMZN", "MSFT", "CVX", "GOOG", "APU", "GE", "WMT", "BAC", "BP", "JPM", "HPQ", "TWX", "EBAY", "DB"]
+    equities.map(equity =>
+      this.fetchEquityPrice(equity)
+    )
+    this.setState({doneFetchEquities: true})
+  }
+
+  getMaruquuText = () => {
+    let textString = "  "
+    this.state.marqueequityInfo.map(ticker =>
+      textString = textString + `   ${ticker}:       ${ticker.price} `
+    )
+    return textString
   }
 
 
   render(){
+    // console.log(this.getMaruquuText(), "mar")
     return(
       <div>
       <Router>
@@ -59,9 +112,8 @@ class App extends Component{
 function mapStateToProps(state) {
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
-    financialNews: state.news,
     currentUser: state.postLogin.currentUser
   }
 }
 
-export default connect(mapStateToProps, {CurrentUser, FinancialNews})(App)
+export default connect(mapStateToProps, {CurrentUser})(App)
