@@ -19,7 +19,7 @@ function headers() {
 export function Login(loginParams) {
   return function(dispatch) {
     dispatch({type: POSTLOGINPARAMS})
-    return fetch(`${BASEURL}/login`,{
+    return fetch(BASEURL + login,{
       method: 'POST',
       headers: headers(),
       body: JSON.stringify(loginParams)
@@ -36,7 +36,7 @@ export function Login(loginParams) {
 export function CurrentUser() {
   return function(dispatch) {
     dispatch({type: POSTLOGINPARAMS})
-    fetch(`${BASEURL}/me`, {
+    fetch(BASEURL + 'me', {
       headers: headers()
     })
     .then(resp => resp.json())
