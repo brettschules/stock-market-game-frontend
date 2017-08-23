@@ -20,7 +20,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.props.userEquities.length !== 0, "testinggg", this.props.userEquities)
     return (
       <div>
         <Grid divided='vertically' >

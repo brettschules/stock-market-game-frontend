@@ -1,8 +1,19 @@
+/*---------------------MARQUEE-----------------------*/
+marquee{
+  font-size: 50px;
+  animation: scroll 10s linear infinite;
+  margin-bottom: 30px;
+  color: white;
+  background-color: black;
+  height: 70px;
+  padding-top: 25px;
+}
+
 /*---------------------NavBar-----------------------*/
 /*NavBar*/
 .ui.inverted.blue.menu, .ui.inverted.menu .blue.active.item {
     background-color: #2185d0;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
@@ -17,12 +28,6 @@
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/20/e9/95/20e995b3230740e1051c509c12a01f3d.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
-}
-
-/*---------------------FOOTER_PAGE-----------------------*/
-footer {
-  margin-left: 20px;
-  margin-top:
 }
 
 h1.welcome {

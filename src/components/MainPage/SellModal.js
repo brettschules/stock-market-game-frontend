@@ -36,7 +36,6 @@ export default class SellModal extends Component{
     })
   }
   render(){
-    console.log(this.state.numberOfShares, "numberOfShares", this.props.equityPrice, "equityprice")
     return(
       <Modal open={this.props.open}>
         <Modal.Header>Equity To Sell<span>{this.props.equitySymbol}</span></Modal.Header>
