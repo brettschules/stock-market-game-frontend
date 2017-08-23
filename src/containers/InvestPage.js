@@ -14,7 +14,7 @@ export default class Name extends Component{
         <table>
           <tr>
             <td>
-              <div className="invest-preview">
+              <div className="invest-chart">
                 <InvestPreviewBody />
               </div>
             </td>

@@ -182,13 +182,11 @@ label.login-label {
 /*---------------------INVEST_PAGE-----------------------*/
 /*UserPortfolio */
 th, td {
-  padding: 20px;
+  padding: 60px;
   text-align: left;
 }
 
-canvas {
-  argin-left: 100px;
-}
+
 
 /*element.style {
     display: block!important;
@@ -209,6 +207,10 @@ canvas {
 
 }
 
+.stock-number-input {
+  font-size: 30px!important;
+}
+
 
 /*input field for equity quantiy*/
 button, input, optgroup, select, textarea {
@@ -226,10 +228,43 @@ button, input, optgroup, select, textarea {
 
 /*search bar*/
 .ui.input {
-  margin-left: -90px;
+  margin-left: -170px!important;
   width: 400px;
+  font-size: 25px!important;
 }
 
+.ui.card>.content>.description, .ui.cards>.card>.content>.description {
+    clear: both;
+    font-size: 40px;
+    text-align: center;
+}
+
+.ui.card>.extra, .ui.cards>.card>.extra {
+    max-width: 100%;
+    min-height: 0!important;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    border-top: 1px solid rgba(0,0,0,.05)!important;
+    position: static;
+    background: 0 0;
+    width: auto;
+    margin: 0 0;
+    padding: .75em 1em;
+    top: 0;
+    left: 0;
+    color: rgba(0,0,0,.4);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: color .1s ease;
+    -o-transition: color .1s ease;
+    transition: color .1s ease;
+    text-align: center;
+}
+
+/*button, input {
+    overflow: visible;
+    font-size: 25px!important;
+}*/
 
 
 /*Equity amount total*/
@@ -243,9 +278,10 @@ button, input, optgroup, select, textarea {
     margin: 0;
     padding: 1em 1em;
     box-shadow: none;
-    font-size: 30px;
+    font-size: 25px!important;
     border-radius: 0;
 }
+
 
 /*header for equity name*/
 .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
@@ -256,6 +292,11 @@ button, input, optgroup, select, textarea {
     height: 2.2em;
     line-height: 1.1;
     overflow: auto;
+}
+
+.ui.card, .ui.cards>.card {
+    max-width: 100%;
+
 }
 
 /*invest preview price total*/
@@ -270,8 +311,7 @@ button, input, optgroup, select, textarea {
 
 /*line graph*/
 .line-graph{
-  width: 75%;
-  margin-left: 120px;
+  width: 75%!important;
 }
 
 /*purchase-button*/
@@ -285,6 +325,11 @@ button, input, optgroup, select, textarea {
     background-image: none;
     width: 400px;
     height: 80px;
+}
+
+.ui.card {
+    margin: 1em 0;
+    width: 399px!important;
 }
 
 /*---------------------MORE-INFO-MODAL-----------------------*/

@@ -11,6 +11,7 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
     super()
     this.state = {
       shares: 0,
+      message: ""
     }
    }
 
@@ -99,10 +100,14 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
 
   shouldUpdateAccountBalance = () => {
     if (this.checkIfBuyDuringMarketHours() === "Excuted") {
+      this.setState({
+        message: `Your order of ${this.props.equityName} for ${this.props.price} has been excuted!`
+      })
        this.updateUserAccountBalanceToDB()
-       this.props.SearchBarValue("")
-       this.setState({shares: 0})
     } else {
+        this.setState({
+          message: `The Market is currently not open, your order will be pending and will be excuted the next market open`
+        })
       return null
     }
   }
@@ -111,6 +116,8 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
      event.preventDefault
      this.postStockToDB()
      this.shouldUpdateAccountBalance()
+     this.props.SearchBarValue("")
+     this.setState({shares: 0})
      console.log(this.checkIfBuyDuringMarketHours(), "Buy")
 
    }
@@ -147,7 +154,7 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
         </div>
       </Card>
       <p>
-        {this.noteStatus()}
+        {this.state.message}
       </p>
       </div>
     )

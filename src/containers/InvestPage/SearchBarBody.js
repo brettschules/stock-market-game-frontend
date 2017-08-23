@@ -60,7 +60,6 @@ class SearchBar extends Component {
     }
   }
 
-
   componentWillMount() {
     this.resetComponent()
   }
@@ -129,6 +128,7 @@ class SearchBar extends Component {
         <Grid>
           <Grid.Column width={8}>
             <Search
+              className="search-bar"
               placeholder={"Search for name of equity"}
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
@@ -143,7 +143,7 @@ class SearchBar extends Component {
           <div className="line-graph">
           <Line
           data={this.state.chartData}
-          width={1500}
+          width={1900}
           height={500}
           options={chartOptions}
         />
