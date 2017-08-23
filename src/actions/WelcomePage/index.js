@@ -34,6 +34,7 @@ export function Login(loginParams) {
 }
 
 export function CurrentUser() {
+
   return function(dispatch) {
     dispatch({type: POSTLOGINPARAMS})
     fetch(BASEURL + 'me', {

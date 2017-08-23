@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import {FetchUserEquities} from "./actions/MainPage/index"
 import bindActionCreators from 'redux'
 import NavBar from './NavBar'
+import SignUpFormModal from './containers/WelcomePage/SignUpFormModal'
 import InvestPage from './containers/InvestPage'
 import ScrollBar from './ScrollBar'
 import Footer from'./Footer'
@@ -44,6 +45,7 @@ class App extends Component {
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
             <Route exact path='/login' render={()=> this.loggedIn() ? <Redirect to="/Profile" /> : <Login /> } />
+            <Route exact path='/signup' component={SignUpFormModal} />
             <Route exact path='/invest' component={Auth(InvestPage)} />
             <Route exact path='/transcations' component={Auth(TranscationsPage)} />
         </div>

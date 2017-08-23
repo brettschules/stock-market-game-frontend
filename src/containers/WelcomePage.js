@@ -15,7 +15,7 @@ export default class WelcomePage extends Component{
             <Button.Group>
               <Button color="blue" size="huge"  as={Link} Link to={`/login`} >Log in</Button>
               <Button.Or />
-              <Button color="red" size="huge" as={Link} Link to={`/login`} >Sign in</Button>
+              <Button color="red" size="huge" as={Link} Link to={`/signup`} >Sign up</Button>
             </Button.Group>
           </div>
         </div>
