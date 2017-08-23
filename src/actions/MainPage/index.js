@@ -9,7 +9,7 @@ const KEY = "MV8HZ4PAMIW9SLYH"
 const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 // const USERAPIURL = "http://localhost:3000/api/v1/users/"
-const USERAPIURL = "process.env.REACT_APP_API"
+const USERAPIURL = process.env.REACT_APP_API
 
 
 
@@ -64,7 +64,7 @@ function totalUnitsPurchasedForEquities(equities) {
 export function FetchUserEquities(userId){
   return function(dispatch){
     dispatch({type: LOADINGUSERAPI})
-    return fetch(USERAPIURL + userId)
+    return fetch(USERAPIURL + 'users/' + userId)
       .then(resp => resp.json())
       .then(data =>  dispatch({type: FETCHUSEREQUITIES, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
   }
@@ -73,7 +73,7 @@ export function FetchUserEquities(userId){
 export function FetchUserEquitiesForProfilePage(userId){
   return function(dispatch){
     dispatch({type: LOADINGUSERAPI})
-    return fetch(USERAPIURL + 'user' + userId)
+    return fetch(USERAPIURL + 'users/' + userId)
       .then(resp => resp.json())
       .then(data =>  dispatch({type: FETCHUSEREQUITIESFORPROFILEPAGE, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
   }

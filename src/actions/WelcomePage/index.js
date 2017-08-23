@@ -5,10 +5,8 @@ export const ISLOGGEDIN = 'ISLOGGEDIN'
 export const CURRENT_USER = 'CURRENT_USER'
 export const FINANCIALNEWS = 'FINANCIALNEWS'
 export const FETCHINGAPI = 'FETCHINGAPI'
-export const FINANCIALNEWSAPI = 'FINANCIALNEWSAPI'
 
-const BASEURL = 'http://localhost:3000/api/v1'
-const FINANCIALNEWSAPIURL = 'http://myallies.com/api/news'
+const BASEURL = process.env.REACT_APP_API
 
 function headers() {
   return {
@@ -53,24 +51,5 @@ export function CurrentUser() {
 export function Logout() {
   return {
     type: LOGOUT
-  }
-}
-
-function getNewsFromAPI(news) {
-  let newsArray = []
-    for (var i in news) {
-      newsArray.push(news[i]["Title"])
-    }
-  return newsArray
-}
-
-export function FinancialNews() {
-  return function(dispatch){
-    dispatch({type: FETCHINGAPI})
-    fetch(FINANCIALNEWSAPIURL)
-    .then(resp => resp.json())
-    .then(resp =>
-      dispatch({type: FINANCIALNEWSAPI, news: getNewsFromAPI(resp)})
-    )
   }
 }

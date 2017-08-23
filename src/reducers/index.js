@@ -7,7 +7,6 @@ import SearchBarValueReducer from './InvestPage/SearchBarValueReducer'
 import FinanicalNewsAPIReducer from './WelcomePage/FinanicalNewsAPIReducer'
 import UserEquitiesReducer from './MainPage/UserEquitiesReducer'
 import UserEquitiesForProfilePageReducer from './MainPage/UserEquitiesForProfilePageReducer'
-import MarqueeEquityInfo from './AppPage/MarqueeEquityInfoReducer'
 
 
 const rootReducer = combineReducers({
@@ -18,8 +17,7 @@ const rootReducer = combineReducers({
   searchBarValue: SearchBarValueReducer,
   fetchFinanicalNewsAPI: FinanicalNewsAPIReducer,
   userEquities: UserEquitiesReducer,
-  userEquitiesForProfilePage: UserEquitiesForProfilePageReducer,
-  marqueeEquityInfo: MarqueeEquityInfo
+  userEquitiesForProfilePage: UserEquitiesForProfilePageReducer
 })
 
 export default rootReducer
