@@ -50,6 +50,23 @@ h1.welcome {
   margin-top: 300px;
 }
 
+input#form-subcomponent-shorthand-input-first-name {
+  margin-left: 170px!important;
+}
+input#form-subcomponent-shorthand-input-user-name {
+  margin-left: 170px!important;
+}
+input#form-subcomponent-shorthand-input-profile-picture-url {
+  margin-left: 170px!important;
+}
+input#form-subcomponent-shorthand-input-password {
+  margin-left: 170px!important;
+}
+
+input#form-subcomponent-shorthand-input-password-confirmation {
+  margin-left: 170px!important;
+}
+
 
 /*---------------------MAIN_PAGE-----------------------*/
 .card {
