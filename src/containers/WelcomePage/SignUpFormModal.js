@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {Login} from '../../actions/WelcomePage/index'
 import {Link, Redirect } from 'react-router-dom'
-import {CurrentUser} from '../../actions/WelcomePage/index'
+import {CurrentUser, SignedUp} from '../../actions/WelcomePage/index'
 import { Button, Header, Form, Modal } from 'semantic-ui-react'
 
 const BASEURL = process.env.REACT_APP_API
 
-export default class SignUpFormModal extends Component {
+class SignUpFormModal extends Component {
   constructor(){
     super()
     this.state = {
@@ -44,11 +44,12 @@ export default class SignUpFormModal extends Component {
       })
   }
 
+  // can move this into app and pass it down to this component
   handleSubmit = (event) => {
     event.preventDefault()
     this.postSignUpInfoToDB(this.state)
+    this.props.signedIn()
     this.setState({name: '', username: '', image: '', password: '', password_confirmation: ''});
-    <Redirect to="/Profile" />
   }
 
 
@@ -59,20 +60,20 @@ export default class SignUpFormModal extends Component {
         <Modal.Content >
       <Modal.Description>
       <Form>
-          <Form.Field required>
-            <Form.Input id='form-subcomponent-shorthand-input-first-name' label='First Name' name="name" placeholder='First Name' onChange={this.handleOnChange}/><br />
+          <Form.Field required >
+            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-first-name' label='First Name' name="name" placeholder='First Name' onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field required>
-            <Form.Input id='form-subcomponent-shorthand-input-user-name' label='User Name' name="username" placeholder='User Name' onChange={this.handleOnChange}/><br />
+          <Form.Field required >
+            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-user-name' label='User Name' name="username" placeholder='User Name' onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field required>
-            <Form.Input id='form-subcomponent-shorthand-input-profile-picture-url' label='Profile Picture Url' name="image" placeholder='Profile Picture Url' onChange={this.handleOnChange}/><br />
+          <Form.Field >
+            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-profile-picture-url' label='Profile Picture Url' name="image" placeholder='Profile Picture Url' onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field required>
-            <Form.Input id='form-subcomponent-shorthand-input-password' label='Password' placeholder='Password' name="password" onChange={this.handleOnChange}/><br />
+          <Form.Field >
+            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-password' label='Password' placeholder='Password' name="password" onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field required>
-            <Form.Input id='form-subcomponent-shorthand-input-password-confirmation' label='Password Confirmation' placeholder='Password Confirmation' name="password_confirmation" onChange={this.handleOnChange}/><br />
+          <Form.Field >
+            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-password-confirmation' label='Password Confirmation' placeholder='Password Confirmation' name="password_confirmation" onChange={this.handleOnChange}/><br />
           </Form.Field>
       </Form>
       </Modal.Description>
@@ -88,4 +89,4 @@ export default class SignUpFormModal extends Component {
   }
 }
 
-// export default connect(null, {Login, CurrentUser})(LoginForm)
+export default connect(null, {SignedUp})(SignUpFormModal)

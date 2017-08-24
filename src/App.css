@@ -1,3 +1,4 @@
+
 /*---------------------MARQUEE-----------------------*/
 marquee{
   font-size: 50px;
@@ -116,6 +117,39 @@ h1.welcome {
   text-align: center;
 }
 
+/*tite for accordion*/
+.title{
+  font-size: 30px!important;
+  font-weight: bold!important;
+}
+
+.accordion-content-shares {
+  padding-bottom: 0px!important;
+  padding-top: 30px!important;
+  font-size: 30px!important;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+}
+
+.accordion-content-market {
+  padding-bottom: 0px!important;
+  padding-top: 0px!important;
+  font-size: 30px!important;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+
+}
+
+.more-info {
+  margin-right: -66px!important;
+  padding-right: 0px!important;
+}
+
+.results{
+  max-height: 300px!important;
+  overflow-y: auto!important;
+}
+
 .ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
     width: 300px;
     height: auto;
@@ -154,6 +188,10 @@ child, .ui.styled.accordion>.title:first-child {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+/*---------------------SIGNUP_PAGE-----------------------*/
+.s-form-input {
+  .margin-left: 20px;
 }
 
 /*---------------------LOGIN_PAGE-----------------------*/

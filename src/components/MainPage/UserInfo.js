@@ -11,7 +11,7 @@ export default class UserInfo extends Component {
   render(){
     return(
       <div className="card">
-        <Image className="profile-image" fluid={true} size="medium" src='http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts' />
+        <Image className="profile-image" width="6" fluid={true} size="medium" src={this.props.userInfo.image !== "" ? this.props.userInfo.image :  'http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts'} />
         <div className="profile-name">
           <h4 ><b id="user-profile-title">Welcome {this.props.userInfo.name}!</b></h4>
             <p id="joined">Joined in 2017</p>

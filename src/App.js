@@ -18,13 +18,14 @@ import {CurrentUser} from './actions/WelcomePage/index'
 
 class App extends Component {
 
+  // signedIn = () => {
+  //   debugger
+  //   if (localStorage.getItem('jwt') && this.props.isLoggedIn)
+  //     this.setState({signedUp: true})
+  // }
 
   loggedIn = () => {
-    if (localStorage.getItem('jwt') && this.props.isLoggedIn) {
-      return true
-    } else {
-      return false
-    }
+    return (localStorage.getItem('jwt') && this.props.isLoggedIn) ? true : false
   }
 
   componentWillMount() {
@@ -34,7 +35,7 @@ class App extends Component {
 
   render(){
     return(
-      <div>
+      <div className="body">
       <Router>
       <div>
         <NavBar />
@@ -45,7 +46,7 @@ class App extends Component {
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
             <Route exact path='/login' render={()=> this.loggedIn() ? <Redirect to="/Profile" /> : <Login /> } />
-            <Route exact path='/signup' component={SignUpFormModal} />
+            <Route exact path='/signup' render={()=> this.props.signedUp ? <Redirect to="/Profile" /> : <SignUpFormModal /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
             <Route exact path='/transcations' component={Auth(TranscationsPage)} />
         </div>
@@ -53,8 +54,7 @@ class App extends Component {
       </Router>
         <footer>
           <Footer />
-        </footer>
-      </div>
+        </footer> </div>
     )
   }
 }
@@ -62,7 +62,8 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
-    currentUser: state.postLogin.currentUser
+    currentUser: state.postLogin.currentUser,
+    signedUp: state.signedUp.isSignedUp
   }
 }
 

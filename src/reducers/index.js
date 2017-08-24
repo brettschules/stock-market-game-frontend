@@ -4,9 +4,9 @@ import LoginReducer from './WelcomePage/LoginReducer'
 import SelectedEquityFromSearchReducer from './InvestPage/SelectedEquityFromSearchReducer'
 import FetchHistoricalDataReducer from './InvestPage/FetchHistoricalDataReducer'
 import SearchBarValueReducer from './InvestPage/SearchBarValueReducer'
-import FinanicalNewsAPIReducer from './WelcomePage/FinanicalNewsAPIReducer'
 import UserEquitiesReducer from './MainPage/UserEquitiesReducer'
 import UserEquitiesForProfilePageReducer from './MainPage/UserEquitiesForProfilePageReducer'
+import SignedUpReducer from './WelcomePage/SignedUpReducer'
 
 
 const rootReducer = combineReducers({
@@ -15,9 +15,9 @@ const rootReducer = combineReducers({
   selectedEquity: SelectedEquityFromSearchReducer,
   fetchHistoricalData: FetchHistoricalDataReducer,
   searchBarValue: SearchBarValueReducer,
-  fetchFinanicalNewsAPI: FinanicalNewsAPIReducer,
   userEquities: UserEquitiesReducer,
-  userEquitiesForProfilePage: UserEquitiesForProfilePageReducer
+  userEquitiesForProfilePage: UserEquitiesForProfilePageReducer,
+  signedUp: SignedUpReducer
 })
 
 export default rootReducer

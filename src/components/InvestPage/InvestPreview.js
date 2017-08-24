@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {SearchBarValue} from '../../actions/InvestPage/index';
 import { Card, Icon, Button, Image } from 'semantic-ui-react';
 
+const BASEURL = process.env.REACT_APP_API
 
  class InvestPreview extends Component {
   constructor() {
@@ -84,7 +85,7 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
        },
        body: JSON.stringify(this.dataParams())
      }
-     fetch('http://localhost:3000/api/v1/stocks', postData)
+     fetch(BASEURL + 'stocks', postData)
    }
 
   updateUserAccountBalanceToDB = () => {
@@ -95,7 +96,7 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react';
       },
       body: JSON.stringify({account_balance: this.handleAccountBalanceRemaining()})
      }
-    fetch(`http://localhost:3000/api/v1/users/${this.props.currentUserInfo.id}`, postData)
+    fetch(BASEURL + 'users/' + 'this.props.currentUserInfo.id', postData)
   }
 
   shouldUpdateAccountBalance = () => {

@@ -43,7 +43,7 @@ class UserPortfolio extends Component {
 
   render() {
     return (
-      <div>
+      <div className="accordion-fold">
         <Accordion fluid={true} styled >
           <Accordion.Title >
             <Icon name='dropdown' />
@@ -51,13 +51,13 @@ class UserPortfolio extends Component {
           </Accordion.Title>
           <Accordion.Content>
             <table>
-              <th>Number of Shares: {this.numberOfShares()}</th>
+              <th className="accordion-content-shares">Number of Shares: {this.numberOfShares()}</th>
               <tr>
-                <th id="market-value">
+                <th className="accordion-content-market">
                   Market Value:   {parseFloat(this.numberOfShares() * this.props.equityInfo.price, 10).toFixed(2).toLocaleString()}
                 </th>
-                <td id="more-info" onClick={this.handleMoreInfoClick}>
-                  <Button>More Info</Button>
+                <td className="more-info" onClick={this.handleMoreInfoClick}>
+                  <Button floated="right" color="blue">More Info</Button>
                 </td>
               </tr>
             </table>

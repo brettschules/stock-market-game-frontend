@@ -5,6 +5,7 @@ export const ISLOGGEDIN = 'ISLOGGEDIN'
 export const CURRENT_USER = 'CURRENT_USER'
 export const FINANCIALNEWS = 'FINANCIALNEWS'
 export const FETCHINGAPI = 'FETCHINGAPI'
+export const SIGNEDUP = 'SIGNEDUP'
 
 const BASEURL = process.env.REACT_APP_API
 
@@ -30,6 +31,13 @@ export function Login(loginParams) {
         dispatch({type: AUTH, resp: resp})
       }
     })
+  }
+}
+
+export function SignedUp() {
+  return {
+    type: SIGNEDUP,
+    data: localStorage.getItem('jwt')
   }
 }
 

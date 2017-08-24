@@ -8,7 +8,6 @@ export const FETCHUSEREQUITIESFORPROFILEPAGE = `FETCHUSEREQUITIESFORPROFILEPAGE`
 const KEY = "MV8HZ4PAMIW9SLYH"
 const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="
-// const USERAPIURL = "http://localhost:3000/api/v1/users/"
 const USERAPIURL = process.env.REACT_APP_API
 
 
