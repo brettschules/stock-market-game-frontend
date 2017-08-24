@@ -9,6 +9,7 @@ export default class UserInfo extends Component {
   }
 
   render(){
+    console.log(this.props.userInfo, "userinfo")
     return(
       <div className="card">
         <Image className="profile-image" width="6" fluid={true} size="medium" src={this.props.userInfo.image !== "" ? this.props.userInfo.image :  'http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts'} />
@@ -25,7 +26,7 @@ export default class UserInfo extends Component {
           <div className="account-balance">
             <h4><b id="user-profile-balance">Account Balance:</b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="huge"/> <span id="user-balance"><NumberFormat value={this.props.userInfo.account_balance} displayType={'text'} thousandSeparator={true}/></span>
+              <Icon name='dollar' color='green' size="huge"/> <span id="user-balance"><NumberFormat value={this.props.userInfo.account_balance - this.props.netValueWorth.toFixed(2)} displayType={'text'} thousandSeparator={true}/></span>
             </div>
           </div>
       </div>
