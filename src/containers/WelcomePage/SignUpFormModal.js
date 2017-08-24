@@ -6,6 +6,7 @@ import {Link } from 'react-router-dom'
 import {CurrentUser} from '../../actions/WelcomePage/index'
 import { Button, Header, Form, Modal } from 'semantic-ui-react'
 
+const BASEURL = process.env.REACT_APP_API
 
 export default class SignUpFormModal extends Component {
   constructor(){
@@ -13,7 +14,7 @@ export default class SignUpFormModal extends Component {
     this.state = {
       name: "",
       username: "",
-      profile_image_url: "",
+      image: "",
       password: "",
       password_confirmation: ""
     }
@@ -22,17 +23,25 @@ export default class SignUpFormModal extends Component {
   handleOnChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-      // username: event.target.value,
-      // profile_image_url: event.target.value,
-      // password: event.target.value,
-      // password_confirmation: event.target.value
+
     })
+  }
+
+  postSignUpInfoToDB = (dataParams) => {
+    const postData = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataParams)
+    }
+    fetch(BASEURL + "users")
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.Login(this.state)
-    this.setState({username: '', password: ''});
+    this.postSignUpInfoToDB(this.state)
+    this.setState({name: '', username: '', image: '', password: '', password_confirmation: ''});
   }
 
 
@@ -53,7 +62,7 @@ export default class SignUpFormModal extends Component {
             <Form.Input id='form-subcomponent-shorthand-input-user-name' label='User Name' name="username" placeholder='User Name' onChange={this.handleOnChange}/><br />
           </Form.Field>
           <Form.Field>
-            <Form.Input id='form-subcomponent-shorthand-input-profile-picture-url' label='Profile Picture Url' name="profile_image_url" placeholder='Profile Picture Url' onChange={this.handleOnChange}/><br />
+            <Form.Input id='form-subcomponent-shorthand-input-profile-picture-url' label='Profile Picture Url' name="image" placeholder='Profile Picture Url' onChange={this.handleOnChange}/><br />
           </Form.Field>
           <Form.Field>
             <Form.Input id='form-subcomponent-shorthand-input-password' label='Password' placeholder='Password' name="password" onChange={this.handleOnChange}/><br />
