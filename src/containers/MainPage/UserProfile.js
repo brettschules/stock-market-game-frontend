@@ -49,6 +49,7 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
           return ""
         }
       }
+      console.log(first, 'first')
       return first["2. high"]
     }
 

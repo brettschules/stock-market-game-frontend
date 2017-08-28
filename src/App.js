@@ -40,7 +40,6 @@ class App extends Component {
       <div>
         <NavBar />
         <div>
-          <ScrollBar />
         </div>
         <div>
            <Route exact path='/' render={() => <WelcomePage /> } />

@@ -30,7 +30,7 @@ class UserPortfolioBody extends Component{
         </div>
         <div className="accordion-portfolio">
           {this.props.equityInfo.length !== 0 ? this.props.equityInfo.map(equity =>
-            <UserPortfolio equityInfo={equity} />
+            <UserPortfolio equityInfo={equity} userEquities={this.props.userEquities} />
           ) : ""}
         </div>
       </div>
@@ -42,6 +42,7 @@ function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
+    userEquities: state.userEquities.equites
   }
 }
 

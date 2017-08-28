@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import UserChart from './UserChart'
 
+const BASEURL = process.env.REACT_APP_API
+
 
 export default class SellModal extends Component{
   constructor(){
@@ -13,7 +15,14 @@ export default class SellModal extends Component{
   }
 
   handleConfirm = () => {
-
+    const postData = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({units: this.state.numberOfShares, order: "sell", status: "Excuted"})
+    }
+    fetch(BASEURL + 'stocks/' + this.props.equityId, postData)
   }
 
   handleOnChange = (event) => {
@@ -36,6 +45,7 @@ export default class SellModal extends Component{
     })
   }
   render(){
+    console.log(this.props.equityId, "id")
     return(
       <Modal open={this.props.open}>
         <Modal.Header>Equity To Sell<span>{this.props.equitySymbol}</span></Modal.Header>
