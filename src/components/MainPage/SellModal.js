@@ -34,7 +34,7 @@ export default class SellModal extends Component{
       },
       body: JSON.stringify(this.dataParams())
     }
-    fetch(BASEURL + 'stocks/' + this.props.equityId, postData)
+    fetch(BASEURL + 'stocks', postData)
   }
 
   handleOnChange = (event) => {
