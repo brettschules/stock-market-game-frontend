@@ -41,13 +41,14 @@ class UserPortfolio extends Component {
     return ""
   }
 
-  getIdOfEquityFromStocksTableInDB = () => {
+  getNameOfEquityFromStocksTableInDB = () => {
     if(this.props.userEquities.length !== 0)
-      return this.props.userEquities.find(test => test.symbol === this.props.equityInfo.symbol).id
+      return this.props.userEquities.find(test => test.symbol === this.props.equityInfo.symbol).name
     return null
   }
 
   render() {
+    console.log(this.props.equityInfo, 'info')
     return (
       <div className="accordion-fold">
         <Accordion fluid={true} styled >
@@ -70,7 +71,7 @@ class UserPortfolio extends Component {
           </Accordion.Content>
         </Accordion>
         <MoreInfoModal open={this.state.moreInfoModal} handleMoreInfoClose={this.handleMoreInfoClose} equitySymbol={this.props.equityInfo.symbol}/>
-        <SellModal open={this.state.sellModal} handleMoreInfoClose={this.handleSellModalClose} equityId={this.getIdOfEquityFromStocksTableInDB()} numberOfShares={this.numberOfShares()} equitySymbol={this.props.equityInfo.symbol} equityPrice={this.props.equityInfo.price}/>
+        <SellModal open={this.state.sellModal} handleMoreInfoClose={this.handleSellModalClose} equityName={this.getNameOfEquityFromStocksTableInDB()} userId={this.props.userId} numberOfShares={this.numberOfShares()} equitySymbol={this.props.equityInfo.symbol} equityPrice={this.props.equityInfo.price}/>
       </div>
     )
   }

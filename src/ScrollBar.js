@@ -24,7 +24,7 @@ export default class ScrollBar extends Component{
         return ""
       }
     }
-    return first["2. high"]
+      return first["2. high"]
   }
 
  fetchEquityPrice = (equity) => {
@@ -46,7 +46,6 @@ export default class ScrollBar extends Component{
    equities.map(equity =>
      this.fetchEquityPrice(equity)
    )
-   this.setState({doneFetchEquities: true})
  }
 
  getMaruquuText = () => {

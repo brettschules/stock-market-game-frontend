@@ -65,7 +65,6 @@ const BASEURL = process.env.REACT_APP_API
    }
 
    dataParams = () => {
-
      return {
        name: this.props.equityName,
        symbol: this.props.equitySymbol,

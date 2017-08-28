@@ -14,13 +14,25 @@ export default class SellModal extends Component{
     }
   }
 
+  dataParams = () => {
+    return {
+      name: this.props.equityName,
+      symbol: this.props.equitySymbol,
+      price_purchased: this.props.equityPrice,
+      units: this.props.numberOfShares,
+      status: "Excuted",
+      order: "sell",
+      user_id: this.props.userId
+    }
+  }
+
   handleConfirm = () => {
     const postData = {
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({units: this.state.numberOfShares, order: "sell", status: "Excuted"})
+      body: JSON.stringify(this.dataParams())
     }
     fetch(BASEURL + 'stocks/' + this.props.equityId, postData)
   }
