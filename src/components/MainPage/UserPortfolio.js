@@ -43,7 +43,7 @@ class UserPortfolio extends Component {
 
   getNameOfEquityFromStocksTableInDB = () => {
     if(this.props.userEquities.length !== 0)
-      return this.props.userEquities.find(test => test.symbol === this.props.equityInfo.symbol).name
+      return this.props.userEquities.find(test => test.symbol === this.props.equityInfo.symbol)
     return null
   }
 
