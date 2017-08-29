@@ -16,7 +16,7 @@ class UserPortfolioBody extends Component{
     this.props.arrayOfEquitySymbols.map(ticker => this.props.FetchEquitesAlpha(ticker))
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchEquitesAlpha()
   }
 
@@ -42,7 +42,8 @@ function mapStateToProps(state) {
   return {
     equityInfo: state.equityInfo.equityInfo,
     loading: state.equityInfo.loading,
-    userId: state.postLogin.currentUser.id
+    userId: state.postLogin.currentUser.id,
+    userEquities: state.userEquities.equites
   }
 }
 

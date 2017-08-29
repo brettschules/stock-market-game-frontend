@@ -30,10 +30,10 @@ class MainPage extends Component {
             }
           </Grid.Column>
           <Grid.Column >
-            {this.props.arrayOfEquitySymbols.length !== 0 ? <NetValueChart /> : <DefaultNetValueChart />}
+            {this.props.onlyEquitiesThatHasAtLeastOneUnit.length !== 0 ? <NetValueChart /> : <DefaultNetValueChart />}
           </Grid.Column>
           <Grid.Column>
-            {this.props.arrayOfEquitySymbols.length !==0  ? <UserPortfolioBody arrayOfEquitySymbols={this.props.arrayOfEquitySymbols} />
+            {this.props.onlyEquitiesThatHasAtLeastOneUnit.length !==0  ? <UserPortfolioBody arrayOfEquitySymbols={this.props.onlyEquitiesThatHasAtLeastOneUnit} />
             : ""}
           </Grid.Column>
           </Grid.Row>
@@ -46,8 +46,9 @@ class MainPage extends Component {
 function mapStateToProps(state) {
   return {
     currentUserId: state.postLogin.currentUser.id,
-    userEquities: state.userEquities.equites,
-    arrayOfEquitySymbols: state.userEquitiesForProfilePage.arrayOfEquitySymbolsForProfilePage
+    userEquities: state.userEquities.totalUnitsPurchasedForEquities,
+    arrayOfEquitySymbols: state.userEquitiesForProfilePage.arrayOfEquitySymbolsForProfilePage,
+    onlyEquitiesThatHasAtLeastOneUnit: state.userEquitiesForProfilePage.onlyEquitiesThatHasAtLeastOneUnit
   }
 }
 

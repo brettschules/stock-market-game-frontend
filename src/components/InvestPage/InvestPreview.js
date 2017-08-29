@@ -162,7 +162,6 @@ const BASEURL = process.env.REACT_APP_API
 }
 
 function mapStateToProps(state) {
-  console.log(state, "currentUserInfo")
   return {
     userInfo: state.postLogin.currentUser,
     searchBarValue: state.searchBarValue.value,

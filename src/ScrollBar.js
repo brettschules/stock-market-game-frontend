@@ -24,6 +24,7 @@ export default class ScrollBar extends Component{
         return ""
       }
     }
+    if (typeof first !== "undefined")
       return first["2. high"]
   }
 
@@ -56,7 +57,7 @@ export default class ScrollBar extends Component{
    return textString
  }
 
- componentWillMount() {
+ componentDidMount() {
     this.arrayOfEquitiesToFetch()
  }
 

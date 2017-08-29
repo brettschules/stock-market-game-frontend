@@ -14,17 +14,18 @@ var CSS_COLOR_NAMES = ["Blue ", "Orange", "DarkSlateBlue", "ForestGreen", "Red",
   yData = () => {
    return Object.values(this.props.totalUnitsPurchasedForEquities)
   }
-   data = (xData, yData) => {
 
+  data = (xData, yData) => {
   var newArray=[]
   for(let i = 0; i < xData.length; i++) {
-    newArray.push({x: xData[i], y: yData[i]})
+    if (yData[i] !== 0) {
+      newArray.push({x: xData[i], y: yData[i]})
+    }
   }
   return newArray
   }
 
   render(){
-
     return(
     <div className="pie-chart">
       <svg viewBox="0 -30 450 350">

@@ -22,7 +22,8 @@ const USERAPIURL = process.env.REACT_APP_API
         return ""
       }
     }
-    return first["2. high"]
+    if (typeof first !== "undefined")
+      return first["2. high"]
   }
 
   const getStockSymbol = (obj) => {
@@ -53,10 +54,24 @@ function totalUnitsPurchasedForEquities(equities) {
     if(equities[i].order === "buy" && equities[i].status === "Excuted") {
       newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
-      newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
+      while (newUserEquitiesObj[equities[i].units] > 0) {
+        newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
+      }
     }
   }
    return newUserEquitiesObj
+}
+
+function onlyEquitiesThatHasAtLeastOneUnit(equities) {
+  var equityObj = totalUnitsPurchasedForEquities(equities)
+  var equitesAtLeastOneUnitArray = []
+
+  for(var i in equityObj) {
+    if(equityObj[i] !== 0) {
+    equitesAtLeastOneUnitArray.push(i)
+    }
+  }
+return equitesAtLeastOneUnitArray
 }
 
 
@@ -74,6 +89,6 @@ export function FetchUserEquitiesForProfilePage(userId){
     dispatch({type: LOADINGUSERAPI})
     return fetch(USERAPIURL + 'users/' + userId)
       .then(resp => resp.json())
-      .then(data =>  dispatch({type: FETCHUSEREQUITIESFORPROFILEPAGE, equities: data["stocks"], totalUnitsPurchasedForEquities: totalUnitsPurchasedForEquities(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
+      .then(data =>  dispatch({type: FETCHUSEREQUITIESFORPROFILEPAGE, equities: data["stocks"], onlyEquitiesThatHasAtLeastOneUnit: onlyEquitiesThatHasAtLeastOneUnit(data["stocks"]), arrayOfEquitySymbols: Object.keys(totalUnitsPurchasedForEquities(data["stocks"]))  }))
   }
 }

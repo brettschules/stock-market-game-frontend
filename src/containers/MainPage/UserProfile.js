@@ -17,24 +17,24 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
      }
    }
 
-  //  Fetched API locally instead of redux for now due to complexity,  will refactor later
+  //  Fetched API locally instead of redux for now due to complexity
 
    componentWillMount() {
-     this.allEquities(this.state.equityPrices)
+     this.allEquities()
    }
 
-   allEquities = (equityPrices) => {
-     this.props.userEquities.map(equity => this.fetchEquityPrice(equity.symbol, equity.units))
+   allEquities = () => {
+     for(var i in this.props.userEquities) {
+       this.fetchEquityPrice(i, this.props.userEquities[i])
+     }
    }
 
    fetchEquityPrice = (equity, units) => {
-
       fetch(BASEURL + equity + ONEMINUTEINVERVALS + KEY)
       .then(resp => resp.json())
       .then(data =>
         this.setState({
-
-          equityPrices: [ ...this.state.equityPrices, (parseFloat(this.getLatestStockPrice(data["Time Series (1min)"]), 10) * units)]
+          equityPrices: [...this.state.equityPrices, (parseFloat(this.getLatestStockPrice(data["Time Series (1min)"]), 10) * units)]
         })
       )
    }
@@ -49,8 +49,8 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
           return ""
         }
       }
-      console.log(first, 'first')
-      return first["2. high"]
+      if (typeof first !== "undefined")
+        return first["2. high"]
     }
 
     getTotalNetValueWorth = (equityPrices) => {

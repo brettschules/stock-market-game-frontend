@@ -16,7 +16,7 @@ export default class SellModal extends Component{
 
   dataParams = () => {
     return {
-      name: this.props.equityName,
+      name: this.props.equityName.name,
       symbol: this.props.equitySymbol,
       price_purchased: this.props.equityPrice,
       units: this.props.numberOfShares,
@@ -57,7 +57,6 @@ export default class SellModal extends Component{
     })
   }
   render(){
-    console.log(this.props.equityId, "id")
     return(
       <Modal open={this.props.open}>
         <Modal.Header>Equity To Sell<span>{this.props.equitySymbol}</span></Modal.Header>
