@@ -35,12 +35,14 @@ export default class SellModal extends Component{
       body: JSON.stringify(this.dataParams())
     }
     fetch(BASEURL + 'stocks', postData)
+    this.props.handleMoreInfoClose()
   }
 
   handleOnChange = (event) => {
     this.setState({
       numberOfShares: event.target.value
     })
+
   }
 
   totalSellPriceChange = () => {
