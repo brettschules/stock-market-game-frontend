@@ -18,7 +18,7 @@ var CSS_COLOR_NAMES = ["Blue ", "Orange", "DarkSlateBlue", "ForestGreen", "Red",
   data = (xData, yData) => {
   var newArray=[]
   for(let i = 0; i < xData.length; i++) {
-    if (yData[i] !== 0) {
+    if (yData[i] > 0) {
       newArray.push({x: xData[i], y: yData[i]})
     }
   }

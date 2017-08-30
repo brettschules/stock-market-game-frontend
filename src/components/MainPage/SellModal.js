@@ -19,7 +19,7 @@ export default class SellModal extends Component{
       name: this.props.equityName.name,
       symbol: this.props.equitySymbol,
       price_purchased: this.props.equityPrice,
-      units: this.props.numberOfShares,
+      units: -Math.abs(this.state.numberOfShares),
       status: "Excuted",
       order: "sell",
       user_id: this.props.userId

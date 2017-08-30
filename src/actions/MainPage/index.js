@@ -11,7 +11,6 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 const USERAPIURL = process.env.REACT_APP_API
 
 
-
   const getLatestStockPrice = (obj) => {
     let first;
     for (var i in obj) {
@@ -54,9 +53,7 @@ function totalUnitsPurchasedForEquities(equities) {
     if(equities[i].order === "buy" && equities[i].status === "Excuted") {
       newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
-      while (newUserEquitiesObj[equities[i].units] > 0) {
         newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
-      }
     }
   }
    return newUserEquitiesObj
@@ -67,13 +64,12 @@ function onlyEquitiesThatHasAtLeastOneUnit(equities) {
   var equitesAtLeastOneUnitArray = []
 
   for(var i in equityObj) {
-    if(equityObj[i] !== 0) {
+    if(equityObj[i] > 0) {
     equitesAtLeastOneUnitArray.push(i)
     }
   }
 return equitesAtLeastOneUnitArray
 }
-
 
 export function FetchUserEquities(userId){
   return function(dispatch){

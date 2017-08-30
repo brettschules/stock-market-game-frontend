@@ -16,14 +16,7 @@ const BASEURL = process.env.REACT_APP_API
     }
    }
 
-  //  currentFullTime = () => {
-  //    let d = new Date();
-  //    let month = d.getMonth()+1;
-  //    return d.getFullYear() + "-" + month + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getMilliseconds()
-  //  }
-   //
-
-   month = () => {
+  month = () => {
      let d = new Date();
      let m = d.getMonth()+1;
      let month = m.toString()
@@ -32,7 +25,7 @@ const BASEURL = process.env.REACT_APP_API
      } else {
        return month
      }
-   }
+  }
 
    currentDate = () => {
      let d = new Date();

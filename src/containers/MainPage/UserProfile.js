@@ -24,8 +24,9 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
    }
 
    allEquities = () => {
-     for(var i in this.props.userEquities) {
-       this.fetchEquityPrice(i, this.props.userEquities[i])
+    for(var i in this.props.userEquities) {
+      if (this.props.userEquities[i] >= 0)
+        this.fetchEquityPrice(i, this.props.userEquities[i])
      }
    }
 

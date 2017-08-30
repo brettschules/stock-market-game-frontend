@@ -32,7 +32,6 @@ class App extends Component {
     this.props.CurrentUser()
   }
 
-
   render(){
     return(
       <div className="body">
