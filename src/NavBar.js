@@ -35,7 +35,7 @@ class NavBar extends Component{
     const { activeItem } = this.state
     return(
       <div>
-        <Menu inverted color="blue" position='left' size="massive">
+        <Menu inverted color="blue" position='left' size="small">
         <Menu.Item>  <Image size="medium" src={Logo} /></Menu.Item>
         <Menu.Item as={Link} to="/" name="Home" active={activeItem === 'Home'} onClick={this.handleItemClick} />
         <Menu.Item as={Link} to="/Profile" name="Profile" active={activeItem === 'Profile'} onClick={this.handleItemClick} />
@@ -44,7 +44,7 @@ class NavBar extends Component{
           {this.loggedIn() ?
           <Menu.Menu position="right">
             <Menu.Item>
-              <Button inverted onClick={this.handleLogoutClick}>
+              <Button inverted onClick={this.handleLogoutClick} size="tiny">
                 Logout
               </Button>
            </Menu.Item>

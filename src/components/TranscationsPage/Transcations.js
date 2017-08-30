@@ -72,5 +72,3 @@ export default class Transcations extends Component{
     )
   }
 }
-
-  // <Table.Cell><Button>Sell</Button></Table.Cell>

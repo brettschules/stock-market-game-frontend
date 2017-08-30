@@ -143,8 +143,8 @@ class SearchBar extends Component {
           <div className="line-graph">
           <Line
           data={this.state.chartData}
-          width={1900}
-          height={500}
+          width={1300}
+          height={400}
           options={chartOptions}
         />
         </div>

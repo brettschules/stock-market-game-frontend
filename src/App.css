@@ -1,12 +1,12 @@
 
 /*---------------------MARQUEE-----------------------*/
 marquee{
-  font-size: 50px;
+  font-size: 30px;
   animation: scroll 10s linear infinite;
   margin-bottom: 30px;
   color: white;
   background-color: black;
-  height: 70px;
+  height: 60px;
   padding-top: 25px;
 }
 
@@ -14,7 +14,7 @@ marquee{
 /*NavBar*/
 .ui.inverted.blue.menu, .ui.inverted.menu .blue.active.item {
     background-color: #2185d0;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .ui.medium.image, .ui.medium.images .image, .ui.medium.images img, .ui.medium.images svg {
@@ -75,7 +75,7 @@ input#form-subcomponent-shorthand-input-password-confirmation {
     transition: 0.3s;
     margin-left: 50px;
     width: 70%;
-    height: 550px;
+    height: 500px;
 }
 
 .profile-name {
@@ -87,7 +87,6 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 }
 
 .profile-networth {
-  margin-top: 30px;
   border-bottom-width: thin;
   border-bottom-style: solid;
   margin-bottom: 20px;
@@ -96,7 +95,6 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 
 .account-balance {
   height: 80px;
-  margin-top: 30px;
 }
 
 .dollar {
@@ -110,13 +108,13 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 }
 
 #user-profile-net {
-  font-size: 25px;
+  font-size: 17px;
   margin-left: 20px;
 }
 
 #user-profile-balance {
-  margin-left: 100px;
-  font-size: 25px;
+  margin-left: 60px;
+  font-size: 20px;
 }
 
 
@@ -126,7 +124,7 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 }
 
 #user-money {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #user-balance {
@@ -136,7 +134,7 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 
 /*tite for accordion*/
 .title{
-  font-size: 30px!important;
+  font-size: 20px!important;
   font-weight: bold!important;
 }
 
@@ -237,7 +235,7 @@ label.login-label {
 /*---------------------INVEST_PAGE-----------------------*/
 /*UserPortfolio */
 th, td {
-  padding: 60px;
+  padding-left: 50px;
   text-align: left;
 }
 
@@ -258,7 +256,7 @@ th, td {
   margin: 1em 0;
   width: 400px;
   margin-left: 60px;
-  height: 400px;
+  height: 300px!important;
 
 }
 
@@ -283,7 +281,7 @@ button, input, optgroup, select, textarea {
 
 /*search bar*/
 .ui.input {
-  margin-left: -170px!important;
+  margin-left: -100px!important;
   width: 400px;
   font-size: 25px!important;
 }
