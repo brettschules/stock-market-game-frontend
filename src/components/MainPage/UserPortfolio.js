@@ -53,7 +53,7 @@ class UserPortfolio extends Component {
         <Accordion fluid={true} styled >
           <Accordion.Title >
             <Icon name='dropdown' />
-            {this.props.equityInfo.symbol} {this.props.equityInfo.price} <span className="sell-button"><Button onClick={this.handleSellModalOpen} floated="right" color="red">Sell</Button></span><span className="tickerPrice"></span>
+            {this.props.equityInfo.symbol} {this.props.equityInfo.price} <span className="sell-button"><Button onClick={this.handleSellModalOpen} floated="right" size="mini" color="red">Sell</Button></span><span className="tickerPrice"></span>
           </Accordion.Title>
           <Accordion.Content>
             <table>

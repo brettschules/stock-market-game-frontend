@@ -48,14 +48,13 @@ class SignUpFormModal extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.postSignUpInfoToDB(this.state)
-    this.props.signedIn()
     this.setState({name: '', username: '', image: '', password: '', password_confirmation: ''});
   }
 
 
   render(){
     return(
-      <Modal open={true}>
+      <Modal open={true} size="small">
         <Modal.Header>Please enter your user information</Modal.Header>
         <Modal.Content >
       <Modal.Description>
@@ -69,11 +68,11 @@ class SignUpFormModal extends Component {
           <Form.Field >
             <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-profile-picture-url' label='Profile Picture Url' name="image" placeholder='Profile Picture Url' onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field >
-            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-password' label='Password' placeholder='Password' name="password" onChange={this.handleOnChange}/><br />
+          <Form.Field required>
+            <Form.Input className="s-form-input" type="password" id='form-subcomponent-shorthand-input-password' label='Password' placeholder='Password' name="password" onChange={this.handleOnChange}/><br />
           </Form.Field>
-          <Form.Field >
-            <Form.Input className="s-form-input" id='form-subcomponent-shorthand-input-password-confirmation' label='Password Confirmation' placeholder='Password Confirmation' name="password_confirmation" onChange={this.handleOnChange}/><br />
+          <Form.Field required>
+            <Form.Input className="s-form-input" type="password" id='form-subcomponent-shorthand-input-password-confirmation' label='Password Confirmation' placeholder='Password Confirmation' name="password_confirmation" onChange={this.handleOnChange}/><br />
           </Form.Field>
       </Form>
       </Modal.Description>

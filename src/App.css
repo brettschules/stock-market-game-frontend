@@ -67,6 +67,17 @@ input#form-subcomponent-shorthand-input-password-confirmation {
   margin-left: 170px!important;
 }
 
+.ui.form .field {
+    display: block;
+    margin: -5px!important;
+    color: rgba(0,0,0,.87);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: none;
+    /* margin-left: 500px; */
+    text-align: center;
+}
+
 
 /*---------------------MAIN_PAGE-----------------------*/
 .card {
@@ -75,7 +86,7 @@ input#form-subcomponent-shorthand-input-password-confirmation {
     transition: 0.3s;
     margin-left: 50px;
     width: 70%;
-    height: 500px;
+    height: 450px;
 }
 
 .profile-name {
@@ -89,8 +100,8 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 .profile-networth {
   border-bottom-width: thin;
   border-bottom-style: solid;
-  margin-bottom: 20px;
-  height: 107px;
+  margin-bottom: 0px!important;
+  height: 80px;
 }
 
 .account-balance {
@@ -140,8 +151,8 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 
 .accordion-content-shares {
   padding-bottom: 0px!important;
-  padding-top: 30px!important;
-  font-size: 30px!important;
+  padding-top: 0px!important;
+  font-size: 16px!important;
   padding-left: 0px!important;
   padding-right: 0px!important;
 }
@@ -149,11 +160,12 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 .accordion-content-market {
   padding-bottom: 0px!important;
   padding-top: 0px!important;
-  font-size: 30px!important;
+  font-size: 20px!important;
   padding-left: 0px!important;
   padding-right: 0px!important;
 
 }
+
 
 .more-info {
   margin-right: -66px!important;
@@ -180,6 +192,8 @@ input#form-subcomponent-shorthand-input-password-confirmation {
 .accordion-portfolio {
   margin-top: 30px;
   margin-right: 50px;
+  max-height: 400px!important;
+  overflow-y: auto!important;
 }
 
 /*font in the accordion*/
@@ -288,7 +302,7 @@ button, input, optgroup, select, textarea {
 
 .ui.card>.content>.description, .ui.cards>.card>.content>.description {
     clear: both;
-    font-size: 40px;
+    font-size: 30px!important;
     text-align: center;
 }
 
@@ -312,6 +326,7 @@ button, input, optgroup, select, textarea {
     -o-transition: color .1s ease;
     transition: color .1s ease;
     text-align: center;
+    margin-top: -30px!important;
 }
 
 /*button, input {
@@ -339,7 +354,7 @@ button, input, optgroup, select, textarea {
 /*header for equity name*/
 .ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
     font-weight: 700;
-    font-size: 1em;
+    font-size: 1em!important;
     margin-top: -.21425em;
     line-height: 1.28571429em;
     height: 2.2em;
