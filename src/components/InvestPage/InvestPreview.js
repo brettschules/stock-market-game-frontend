@@ -27,9 +27,18 @@ const BASEURL = process.env.REACT_APP_API
      }
   }
 
+  date = () => {
+    let d = new Date()
+    if (d.getDate().toString().length === 1) {
+      return "0" + d.getDate()
+    } else {
+      return d.getDate()
+    }
+  }
+
    currentDate = () => {
      let d = new Date();
-     return d.getFullYear() + "-" + this.month() + "-" + d.getDate()
+     return d.getFullYear() + "-" + this.month() + "-" + this.date()
    }
 
 
@@ -42,6 +51,7 @@ const BASEURL = process.env.REACT_APP_API
   }
 
    checkIfBuyDuringMarketHours = () => {
+     debugger
      if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time.slice(0,10) === this.currentDate()) {
        this.props.SearchBarValue("")
        this.setState({shares: 0})
@@ -98,7 +108,6 @@ const BASEURL = process.env.REACT_APP_API
       })
        this.updateUserAccountBalanceToDB()
     } else {
-      debugger
         this.setState({
           message: `The Market is currently not open, your order will be pending and will be excuted the next market open`
         })
