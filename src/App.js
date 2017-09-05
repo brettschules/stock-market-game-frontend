@@ -27,7 +27,6 @@ class App extends Component {
   }
 
   componentWillMount() {
-    debugger
     this.props.CurrentUser()
   }
 

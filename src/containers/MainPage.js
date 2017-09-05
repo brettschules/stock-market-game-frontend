@@ -89,6 +89,7 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log(this.props.onlyEquitiesThatHasAtLeastOneUnit, "this.props.onlyEquitiesThatHasAtLeastOneUnit")
     this.anyPendingOrdersToBeExcuted()
     return (
       <div>

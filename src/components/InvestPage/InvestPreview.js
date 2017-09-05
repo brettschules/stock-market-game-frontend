@@ -51,7 +51,6 @@ const BASEURL = process.env.REACT_APP_API
   }
 
    checkIfBuyDuringMarketHours = () => {
-     debugger
      if (this.props.time.slice(11,20) > "09:30:00" && this.props.time.slice(11,20) < "16:00:00" && this.props.time.slice(0,10) === this.currentDate()) {
        this.props.SearchBarValue("")
        this.setState({shares: 0})

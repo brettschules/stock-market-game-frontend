@@ -53,9 +53,10 @@ function totalUnitsPurchasedForEquities(equities) {
     if(equities[i].order === "buy" && equities[i].status === "Excuted") {
       newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     } else if(equities[i].order === "sell" && equities[i].status === "Excuted"){
-        newUserEquitiesObj[equities[i].symbol] -= equities[i].units;
+        newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     }
   }
+
    return newUserEquitiesObj
 }
 
