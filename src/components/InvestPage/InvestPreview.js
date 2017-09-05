@@ -95,9 +95,9 @@ const BASEURL = process.env.REACT_APP_API
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({account_balance: this.handleAccountBalanceRemaining()})
+      body: JSON.stringify({account_balance: this.handleAccountBalanceRemaining().toFixed(2)})
      }
-    fetch(BASEURL + 'users/' + 'this.props.currentUserInfo.id', postData)
+    fetch(BASEURL + 'users/' + this.props.currentUserInfo.id, postData)
   }
 
   shouldUpdateAccountBalance = () => {
@@ -128,7 +128,7 @@ const BASEURL = process.env.REACT_APP_API
     if (isNaN(parseFloat(this.props.price, 10) * this.state.shares))
       return "0.00"
     return (parseFloat(this.props.price, 10) * this.state.shares).toFixed(2)
-   }
+  }
 
   handleAccountBalanceRemaining = () => {
     return parseFloat(this.props.currentUserInfo.account_balance - this.handleTotalEquityPrice(), 10)

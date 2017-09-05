@@ -35,6 +35,7 @@ export default class SellModal extends Component{
       body: JSON.stringify(this.dataParams())
     }
     fetch(BASEURL + 'stocks', postData)
+    this.updateUserAccountBalanceToDB()
     this.props.handleMoreInfoClose()
   }
 
@@ -42,23 +43,40 @@ export default class SellModal extends Component{
     this.setState({
       numberOfShares: event.target.value
     })
-
   }
 
   totalSellPriceChange = () => {
-      return parseFloat(this.state.numberOfShares * this.props.equityPrice, 10).toFixed(2)
+      return parseFloat(this.state.numberOfShares * this.props.equityPrice, 10)
   }
 
   handleBothFunctionsOnChange = (event) => {
     this.handleOnChange(event)
     this.totalSellPriceChange()
   }
+
+  updateUserAccountBalanceToDB = () => {
+    const postData = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({account_balance: this.handleAccountBalanceRemaining().toFixed(2)})
+     }
+    fetch(BASEURL + 'users/' + this.props.userId, postData)
+  }
+
+  handleAccountBalanceRemaining = () => {
+    return parseFloat(this.props.currentUserInfo.account_balance + this.totalSellPriceChange(), 10)
+  }
+
   componentWillMount() {
     this.setState({
       numberOfShares: this.props.numberOfShares,
     })
   }
+
   render(){
+    console.log(this.totalSellPriceChange())
     return(
       <Modal open={this.props.open}>
         <Modal.Header>Equity To Sell<span>{this.props.equitySymbol}</span></Modal.Header>

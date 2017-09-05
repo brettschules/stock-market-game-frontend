@@ -56,7 +56,6 @@ function totalUnitsPurchasedForEquities(equities) {
         newUserEquitiesObj[equities[i].symbol] += equities[i].units;
     }
   }
-
    return newUserEquitiesObj
 }
 

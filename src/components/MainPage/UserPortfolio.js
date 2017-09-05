@@ -70,7 +70,7 @@ class UserPortfolio extends Component {
           </Accordion.Content>
         </Accordion>
         <MoreInfoModal open={this.state.moreInfoModal} handleMoreInfoClose={this.handleMoreInfoClose} equitySymbol={this.props.equityInfo.symbol}/>
-        <SellModal open={this.state.sellModal} handleMoreInfoClose={this.handleSellModalClose}  equityName={this.getNameOfEquityFromStocksTableInDB()} userId={this.props.userId} numberOfShares={this.numberOfShares()} equitySymbol={this.props.equityInfo.symbol} equityPrice={this.props.equityInfo.price}/>
+        <SellModal open={this.state.sellModal} handleMoreInfoClose={this.handleSellModalClose}  equityName={this.getNameOfEquityFromStocksTableInDB()} userId={this.props.userId} numberOfShares={this.numberOfShares()} currentUserInfo={this.props.currentUserInfo}equitySymbol={this.props.equityInfo.symbol} equityPrice={this.props.equityInfo.price}/>
       </div>
     )
   }
@@ -78,7 +78,8 @@ class UserPortfolio extends Component {
 
 function mapStateToProps(state) {
   return {
-    totalUnitsPurchasedForEquities: state.userEquities.totalUnitsPurchasedForEquities
+    totalUnitsPurchasedForEquities: state.userEquities.totalUnitsPurchasedForEquities,
+    currentUserInfo: state.postLogin.currentUser
   }
 }
 
