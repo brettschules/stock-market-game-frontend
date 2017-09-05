@@ -98,6 +98,7 @@ const BASEURL = process.env.REACT_APP_API
       })
        this.updateUserAccountBalanceToDB()
     } else {
+      debugger
         this.setState({
           message: `The Market is currently not open, your order will be pending and will be excuted the next market open`
         })
