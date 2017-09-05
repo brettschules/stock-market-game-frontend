@@ -36,8 +36,7 @@ export function Login(loginParams) {
 
 export function SignedUp() {
   return {
-    type: SIGNEDUP,
-    data: localStorage.getItem('jwt')
+    type: SIGNEDUP
   }
 }
 

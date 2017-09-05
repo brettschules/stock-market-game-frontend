@@ -117,7 +117,6 @@ function mapStateToProps(state) {
   return {
     currentUserId: state.postLogin.currentUser.id,
     userEquities: state.userEquities.totalUnitsPurchasedForEquities,
-    // arrayOfEquitySymbols: state.userEquitiesForProfilePage.arrayOfEquitySymbolsForProfilePage,
     onlyEquitiesThatHasAtLeastOneUnit: state.userEquitiesForProfilePage.onlyEquitiesThatHasAtLeastOneUnit,
     checkUserEquities: state.userEquities.equites
   }

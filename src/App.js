@@ -18,21 +18,21 @@ import {CurrentUser} from './actions/WelcomePage/index'
 
 class App extends Component {
 
-  // signedIn = () => {
-  //   debugger
-  //   if (localStorage.getItem('jwt') && this.props.isLoggedIn)
-  //     this.setState({signedUp: true})
-  // }
+  signedIn = () => {
+    return (localStorage.getItem('jwt') && this.props.signedUp) ? true : false
+  }
 
   loggedIn = () => {
     return (localStorage.getItem('jwt') && this.props.isLoggedIn) ? true : false
   }
 
   componentWillMount() {
+    debugger
     this.props.CurrentUser()
   }
 
   render(){
+    console.log(this.props.signedUp, 'test')
     return(
       <div className="body">
       <Router>
@@ -45,7 +45,7 @@ class App extends Component {
            <Route exact path='/' render={() => <WelcomePage /> } />
             <Route exact path='/profile' component={Auth(MainPage)}  />
             <Route exact path='/login' render={()=> this.loggedIn() ? <Redirect to="/Profile" /> : <Login /> } />
-            <Route exact path='/signup' render={()=> this.props.signedUp ? <Redirect to="/Profile" /> : <SignUpFormModal /> } />
+            <Route exact path='/signup' render={()=> this.signedIn() ? <Redirect to="/Profile" /> : <SignUpFormModal /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
             <Route exact path='/transcations' component={Auth(TranscationsPage)} />
         </div>

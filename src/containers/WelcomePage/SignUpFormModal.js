@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {Login} from '../../actions/WelcomePage/index'
 import {Link, Redirect } from 'react-router-dom'
-import {CurrentUser, SignedUp} from '../../actions/WelcomePage/index'
+import {CurrentUser, SignedUp, Login} from '../../actions/WelcomePage/index'
 import { Button, Header, Form, Modal } from 'semantic-ui-react'
 
 const BASEURL = process.env.REACT_APP_API
@@ -41,10 +40,12 @@ class SignUpFormModal extends Component {
         if(!data.error){
           localStorage.setItem('jwt', data.token)
         }
+        this.props.CurrentUser()
+        this.props.SignedUp()
       })
+
   }
 
-  // can move this into app and pass it down to this component
   handleSubmit = (event) => {
     event.preventDefault()
     this.postSignUpInfoToDB(this.state)
@@ -88,4 +89,4 @@ class SignUpFormModal extends Component {
   }
 }
 
-export default connect(null, {SignedUp})(SignUpFormModal)
+export default connect(null, {SignedUp, CurrentUser})(SignUpFormModal)
