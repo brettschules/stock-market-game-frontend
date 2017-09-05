@@ -76,7 +76,6 @@ export default class SellModal extends Component{
   }
 
   render(){
-    console.log(this.totalSellPriceChange())
     return(
       <Modal open={this.props.open}>
         <Modal.Header>Equity To Sell<span>{this.props.equitySymbol}</span></Modal.Header>

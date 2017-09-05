@@ -74,7 +74,6 @@ class MainPage extends Component {
   }
 
   anyPendingOrdersToBeExcuted = () => {
-    console.log(this.props.checkUserEquities, "check")
     this.props.checkUserEquities.map(checkEquity =>
       this.checkStatus(checkEquity)
     )
@@ -89,7 +88,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.props.onlyEquitiesThatHasAtLeastOneUnit, "this.props.onlyEquitiesThatHasAtLeastOneUnit")
     this.anyPendingOrdersToBeExcuted()
     return (
       <div>
