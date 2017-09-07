@@ -43,7 +43,10 @@ class SignUpFormModal extends Component {
         // this.props.CurrentUser()
         this.props.SignedUp()
       })
+  }
 
+  componentWillUnmount() {
+    this.props.CurrentUser()
   }
 
   handleSubmit = (event) => {
