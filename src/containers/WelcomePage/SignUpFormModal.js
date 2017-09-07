@@ -40,14 +40,14 @@ class SignUpFormModal extends Component {
         if(!data.error){
           localStorage.setItem('jwt', data.token)
         }
-        // this.props.CurrentUser()
+        this.props.CurrentUser()
         this.props.SignedUp()
       })
   }
 
-  componentWillUnmount() {
-    this.props.CurrentUser()
-  }
+  // componentWillUnmount() {
+  //   this.props.CurrentUser()
+  // }
 
   handleSubmit = (event) => {
     event.preventDefault()
