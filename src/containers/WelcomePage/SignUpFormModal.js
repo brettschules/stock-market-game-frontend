@@ -14,6 +14,7 @@ class SignUpFormModal extends Component {
       name: "",
       username: "",
       image: "",
+      account_balance: 100000.00,
       password: "",
       password_confirmation: ""
     }
@@ -52,7 +53,7 @@ class SignUpFormModal extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.SignUp(this.state)
-    this.setState({name: '', username: '', image: '', password: '', password_confirmation: ''});
+    this.setState({name: '', username: '', image: '', account_balance: 100000.00, password: '', password_confirmation: ''});
   }
 
 
