@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Icon, Image } from 'semantic-ui-react'
-import NumberFormat from 'react-number-format'
 
 
 export default class UserInfo extends Component {
@@ -25,7 +24,7 @@ export default class UserInfo extends Component {
           <div className="account-balance">
             <h4><b id="user-profile-balance">Account Balance:</b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="big"/> <span id="user-balance"><NumberFormat value={this.props.userInfo.account_balance} displayType={'text'} thousandSeparator={true}/></span>
+              <Icon name='dollar' color='green' size="big"/> <span id="user-balance">{this.props.userInfo.account_balance}</span>
             </div>
           </div>
       </div>
