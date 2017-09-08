@@ -24,7 +24,7 @@ export default class UserInfo extends Component {
           <div className="account-balance">
             <h4><b id="user-profile-balance">Account Balance:</b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="big"/> <span id="user-balance">{typeof this.props.userInfo.account_balance !== "undefined" ? this.props.userInfo.account_balance.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span>
+              <Icon name='dollar' color='green' size="big"/> <span id="user-balance">{typeof this.props.userInfo.account_balance !== "undefined" ? this.props.userInfo.account_balance.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2}) : null}</span>
             </div>
           </div>
       </div>
