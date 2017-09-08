@@ -196,6 +196,13 @@ input#form-subcomponent-shorthand-input-password-confirmation {
   overflow-y: auto!important;
 }
 
+.messages {
+  text-align: center;
+  font-size: 15px!important;
+  padding-top: 15px!important;
+  font-weight: bold!important;
+}
+
 /*font in the accordion*/
 .ui.accordion .title:not(.ui) {
     padding: .5em 0;
@@ -298,6 +305,7 @@ button, input, optgroup, select, textarea {
   margin-left: -100px!important;
   width: 400px;
   font-size: 25px!important;
+  margin-bottom: 20px!important;
 }
 
 .ui.card>.content>.description, .ui.cards>.card>.content>.description {
@@ -405,3 +413,26 @@ button, input, optgroup, select, textarea {
 .chart-data {
   margin-right: 50px;
 }
+
+/*---------------------ABOUT-PAGE-----------------------*/
+
+.about-page {
+  text-align: center;
+  margin-right: 150px;
+  margin-left: 150px;
+}
+
+/*---------------------HOW-TO-PLAY-PAGE-----------------------*/
+.how-to-play-page {
+  text-align: center;
+  margin-right: 150px;
+  margin-left: 150px;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/*---------------------CONTACT-PAGE-----------------------*/

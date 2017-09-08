@@ -10,7 +10,7 @@ export default class WelcomePage extends Component{
     return(
       <div className="background-image">
         <div>
-          <h1 className="welcome">Welcome To The StockMarket Game!!!</h1>
+          <h1 className="welcome">Welcome To The StockMarket game!</h1>
           <div className="login-button">
             <Button.Group>
               <Button color="blue" size="huge"  as={Link} Link to={`/login`} >Log in</Button>

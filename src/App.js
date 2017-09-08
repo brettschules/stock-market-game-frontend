@@ -13,6 +13,9 @@ import InvestPage from './containers/InvestPage'
 import ScrollBar from './ScrollBar'
 import Footer from'./Footer'
 import TranscationsPage from './containers/TranscationsPage'
+import About from './components/FooterPages/About'
+import Contact from './components/FooterPages/Contact'
+import HowToPlay from './components/FooterPages/HowToPlay'
 import {CurrentUser} from './actions/WelcomePage/index'
 
 
@@ -47,12 +50,16 @@ class App extends Component {
             <Route exact path='/signup' render={()=> this.signedIn() ? <Redirect to="/Profile" /> : <SignUpFormModal /> } />
             <Route exact path='/invest' component={Auth(InvestPage)} />
             <Route exact path='/transcations' component={Auth(TranscationsPage)} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/contact' component={Contact} />
+            <Route exact path='/howtoplay' component={HowToPlay} />
         </div>
-      </div>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </Router>
-        <footer>
-          <Footer />
-        </footer> </div>
+      </div>
     )
   }
 }

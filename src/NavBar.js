@@ -5,7 +5,7 @@ import {Menu, Button, Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {Logout} from './actions/WelcomePage/index'
 import Logo from './Logo.png'
-class NavBar extends Component{
+class NavBar extends Component {
   constructor(){
     super()
     this.state = {

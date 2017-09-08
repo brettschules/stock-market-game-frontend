@@ -103,7 +103,7 @@ const BASEURL = process.env.REACT_APP_API
   shouldUpdateAccountBalance = () => {
     if (this.checkIfBuyDuringMarketHours() === "Excuted") {
       this.setState({
-        message: `Your order of ${this.props.equityName} for ${this.props.price} has been excuted!`
+        message: `Your order of ${this.props.equityName} for ${this.props.price} has been executed!`
       })
        this.updateUserAccountBalanceToDB()
     } else {
@@ -154,10 +154,16 @@ const BASEURL = process.env.REACT_APP_API
         <div className="purchse-button">
         <Button onClick={this.handleSubmit} color="green" size="massive">Purchase</Button>
         </div>
+        {this.state.message != "" ?
+        <Card.Content extra>
+          <p className="messages">
+            {this.state.message}
+          </p>
+        </Card.Content>
+          : null
+        }
       </Card>
-      <p>
-        {this.state.message}
-      </p>
+
       </div>
     )
   }
