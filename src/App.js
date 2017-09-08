@@ -19,7 +19,7 @@ import {CurrentUser} from './actions/WelcomePage/index'
 class App extends Component {
 
   signedIn = () => {
-    return (localStorage.getItem('jwt') && this.props.isSignedUp) ? true : false
+    return (localStorage.getItem('jwt')
   }
 
   loggedIn = () => {
