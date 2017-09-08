@@ -19,7 +19,7 @@ import {CurrentUser} from './actions/WelcomePage/index'
 class App extends Component {
 
   signedIn = () => {
-    return (localStorage.getItem('jwt') && this.props.signedUp) ? true : false
+    return (localStorage.getItem('jwt') && this.props.isSignedUp) ? true : false
   }
 
   loggedIn = () => {
@@ -58,10 +58,11 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state, "state")
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
     currentUser: state.postLogin.currentUser,
-    signedUp: state.signedUp.isSignedUp
+    isSignedUp: state.signUp.auth.isSignedUp
   }
 }
 

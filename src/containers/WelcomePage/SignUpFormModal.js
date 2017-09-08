@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {Link, Redirect } from 'react-router-dom'
-import {CurrentUser, SignedUp, Login} from '../../actions/WelcomePage/index'
+import {CurrentUser, Login, SignUp} from '../../actions/WelcomePage/index'
 import { Button, Header, Form, Modal } from 'semantic-ui-react'
 
 const BASEURL = process.env.REACT_APP_API
@@ -26,32 +26,32 @@ class SignUpFormModal extends Component {
     })
   }
 
-  postSignUpInfoToDB = (dataParams) => {
-    const postData = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dataParams)
-    }
-    fetch(BASEURL + "users", postData)
-      .then(resp => resp.json())
-      .then(data => {
-        if(!data.error){
-          localStorage.setItem('jwt', data.token)
-        }
-        this.props.CurrentUser()
-        this.props.SignedUp()
-      })
-  }
-
-  // componentWillUnmount() {
-  //   this.props.CurrentUser()
+  // postSignUpInfoToDB = (dataParams) => {
+  //   const postData = {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(dataParams)
+  //   }
+  //   fetch(BASEURL + "users", postData)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       if(!data.error){
+  //         localStorage.setItem('jwt', data.token)
+  //       }
+  //       this.props.CurrentUser()
+  //       this.props.SignedUp()
+  //     })
   // }
+
+  componentWillUnmount() {
+    this.props.CurrentUser()
+  }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.postSignUpInfoToDB(this.state)
+    this.props.SignUp(this.state)
     this.setState({name: '', username: '', image: '', password: '', password_confirmation: ''});
   }
 
@@ -92,4 +92,4 @@ class SignUpFormModal extends Component {
   }
 }
 
-export default connect(null, {SignedUp, CurrentUser})(SignUpFormModal)
+export default connect(null, {CurrentUser, SignUp})(SignUpFormModal)

@@ -6,6 +6,7 @@ export const CURRENT_USER = 'CURRENT_USER'
 export const FINANCIALNEWS = 'FINANCIALNEWS'
 export const FETCHINGAPI = 'FETCHINGAPI'
 export const SIGNEDUP = 'SIGNEDUP'
+export const POSTSIGNUPPARAMS = 'POSTSIGNUPPARAMS'
 
 const BASEURL = process.env.REACT_APP_API
 
@@ -34,14 +35,26 @@ export function Login(loginParams) {
   }
 }
 
-export function SignedUp() {
-  return {
-    type: SIGNEDUP
+export function SignUp(SignUpParams) {
+  return function(dispatch) {
+    dispatch({type: POSTSIGNUPPARAMS})
+    return fetch(BASEURL + "users",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(SignUpParams)
+    }).then(res => res.json())
+    .then(data => {
+      if(!data.error){
+        localStorage.setItem('jwt', data.token)
+        dispatch({type: AUTH, resp: data})
+      }
+    })
   }
 }
 
 export function CurrentUser() {
-
   return function(dispatch) {
     dispatch({type: POSTLOGINPARAMS})
     fetch(BASEURL + 'me', {

@@ -6,7 +6,7 @@ import FetchHistoricalDataReducer from './InvestPage/FetchHistoricalDataReducer'
 import SearchBarValueReducer from './InvestPage/SearchBarValueReducer'
 import UserEquitiesReducer from './MainPage/UserEquitiesReducer'
 import UserEquitiesForProfilePageReducer from './MainPage/UserEquitiesForProfilePageReducer'
-import SignedUpReducer from './WelcomePage/SignedUpReducer'
+import SignUpReducer from './WelcomePage/SignUpReducer'
 
 
 const rootReducer = combineReducers({
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   searchBarValue: SearchBarValueReducer,
   userEquities: UserEquitiesReducer,
   userEquitiesForProfilePage: UserEquitiesForProfilePageReducer,
-  signedUp: SignedUpReducer
+  signUp: SignUpReducer
 })
 
 export default rootReducer
