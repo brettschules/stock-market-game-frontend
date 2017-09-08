@@ -420,6 +420,8 @@ button, input, optgroup, select, textarea {
   text-align: center;
   margin-right: 150px;
   margin-left: 150px;
+  margin-bottom: 130px;
+  font-size: 20px;
 }
 
 /*---------------------HOW-TO-PLAY-PAGE-----------------------*/
@@ -427,7 +429,8 @@ button, input, optgroup, select, textarea {
   text-align: center;
   margin-right: 150px;
   margin-left: 150px;
-
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
 ul {
@@ -436,3 +439,8 @@ ul {
 
 
 /*---------------------CONTACT-PAGE-----------------------*/
+
+.contact-page {
+  text-align: center;
+  margin-bottom: 150px;
+}

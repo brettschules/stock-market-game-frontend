@@ -20,8 +20,7 @@ export default class HowToPlay extends Component {
           Once you click on one of the buttons, a popup will show, please simply follow to the instructers and type in your user credentials.
           See image below for what the login and signUp buttons look like.
         </p>
-        <Image className="profile-image" width="15" fluid={true} size="small" src={LoginSignUpImage} />
-
+        <Image className="profile-image" width="15" fluid={true} size="medium" src={LoginSignUpImage} />
         <h2>
           After Signing up or logging in as a user.
         </h2>
