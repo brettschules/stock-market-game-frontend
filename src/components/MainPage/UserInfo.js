@@ -18,17 +18,16 @@ export default class UserInfo extends Component {
          <div className="profile-networth">
           <h4><b id="user-profile-net">Your current Net Value Worth: </b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="big"/> <span id="user-money">{this.props.netValueWorth.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span>
+              <Icon name='dollar' color='green' size="big"/> <span id="user-money">{typeof this.props.netValueWorth !== "undefined" ? this.props.netValueWorth.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2}) : null}</span>
             </div>
           </div>
           <div className="account-balance">
             <h4><b id="user-profile-balance">Account Balance:</b></h4>
             <div className="dollar">
-              <Icon name='dollar' color='green' size="big"/> <span id="user-balance">{this.props.userInfo.account_balance.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span>
+              <Icon name='dollar' color='green' size="big"/> <span id="user-balance">{this.props.userInfo.account_balance.toFixed(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</span>
             </div>
           </div>
       </div>
-
     )
   }
 }
