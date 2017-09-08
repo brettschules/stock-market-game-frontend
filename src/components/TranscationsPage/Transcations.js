@@ -47,11 +47,20 @@ export default class Transcations extends Component{
    }
 
    costBasis = () => {
-     return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.props.equityInfo.price_purchased, 10)).toFixed(2)
+    return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.props.equityInfo.price_purchased, 10)).toFixed(2)
+   }
+
+  //  calling functions with localeString formater won't work
+   costBasisToUSDFormat = () => {
+    return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.props.equityInfo.price_purchased, 10)).toLocaleString(undefined, {style: 'currency', currency: 'USD'})
    }
 
    marketValue = () => {
-     return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.state.equityPrice, 10)).toFixed(2)
+    return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.state.equityPrice, 10)).toFixed(2)
+   }
+
+   marketValueToUSDFormat = () => {
+    return (parseFloat(this.props.equityInfo.units, 10) *  parseFloat(this.state.equityPrice, 10)).toLocaleString(undefined, {style: 'currency', currency: 'USD'})
    }
 
   render(){
@@ -63,11 +72,11 @@ export default class Transcations extends Component{
         <Table.Cell>{this.props.equityInfo.order}</Table.Cell>
         <Table.Cell>{this.props.equityInfo.status}</Table.Cell>
         <Table.Cell>{this.props.equityInfo.units}</Table.Cell>
-        <Table.Cell>{this.props.equityInfo.price_purchased}</Table.Cell>
-        <Table.Cell>{this.costBasis()}</Table.Cell>
-        <Table.Cell>{this.state.equityPrice}</Table.Cell>
-        <Table.Cell>{this.marketValue()}</Table.Cell>
-        <Table.Cell>{parseFloat((this.marketValue() - this.costBasis())).toFixed(2)}</Table.Cell>
+        <Table.Cell>{this.props.equityInfo.price_purchased.toLocaleString(undefined, {style: 'currency', currency: 'USD'})}</Table.Cell>
+        <Table.Cell>{this.costBasisToUSDFormat()}</Table.Cell>
+        <Table.Cell>{this.state.equityPrice.toLocaleString(undefined, {style: 'currency', currency: 'USD'})}</Table.Cell>
+        <Table.Cell>{this.marketValueToUSDFormat()}</Table.Cell>
+        <Table.Cell>{parseFloat((this.marketValue() - this.costBasis())).toLocaleString(undefined, {style: 'currency', currency: 'USD'})}</Table.Cell>
       </Table.Row>
     )
   }

@@ -60,7 +60,7 @@ class UserPortfolio extends Component {
               <th className="accordion-content-shares">Number of Shares: {this.numberOfShares()}</th>
               <tr>
                 <th className="accordion-content-market">
-                  Market Value:   {parseFloat(this.numberOfShares() * this.props.equityInfo.price, 10).toFixed(2).toLocaleString()}
+                  Market Value:   {parseFloat(this.numberOfShares() * this.props.equityInfo.price, 10).toLocaleString(undefined, {style: 'currency', currency: 'USD'})}
                 </th>
                 <td className="more-info" onClick={this.handleMoreInfoClick}>
                   <Button floated="right" color="blue">More Info</Button>
