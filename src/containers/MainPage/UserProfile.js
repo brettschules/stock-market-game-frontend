@@ -6,7 +6,7 @@ import UserInfo from '../../components/MainPage/UserInfo'
 import TranscationsPageBody from '../TranscationsPage/TranscationsPageBody'
 
 const KEY = "MV8HZ4PAMIW9SLYH"
-const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
+const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 
  class UserProfile extends Component {
@@ -35,7 +35,7 @@ const ONEMINUTEINVERVALS = "&interval=1min&apikey="
       .then(resp => resp.json())
       .then(data =>
         this.setState({
-          equityPrices: [...this.state.equityPrices, (parseFloat(this.getLatestStockPrice(data["Time Series (1min)"]), 10) * units)]
+          equityPrices: [...this.state.equityPrices, (parseFloat(this.getLatestStockPrice(data["Time Series (Daily)"]), 10) * units)]
         })
       )
    }

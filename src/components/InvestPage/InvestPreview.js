@@ -120,8 +120,6 @@ const BASEURL = process.env.REACT_APP_API
      this.shouldUpdateAccountBalance()
      this.props.SearchBarValue("")
      this.setState({shares: 0})
-     console.log(this.checkIfBuyDuringMarketHours(), "Buy")
-
    }
 
   handleTotalEquityPrice = () => {

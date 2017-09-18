@@ -5,7 +5,7 @@ import {FetchEquitesAlpha} from '../../actions/MainPage/index';
 import { Table, Button, Modal } from 'semantic-ui-react'
 
 const KEY = "MV8HZ4PAMIW9SLYH"
-const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
+const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 
 export default class Transcations extends Component{
@@ -22,13 +22,15 @@ export default class Transcations extends Component{
 
   //  Fetched API locally to ensure price matches currenty equity
 
+  // update: as of 9/18/2017, the interday end point for api is not longer available, have to use daily enpoint
+
    fetchEquityPrice = (equity) => {
       fetch(BASEURL + equity + ONEMINUTEINVERVALS + KEY)
       .then(resp => resp.json())
       .then(data =>
         this.setState({
 
-          equityPrice: this.getLatestStockPrice(data["Time Series (1min)"])
+          equityPrice: this.getLatestStockPrice(data["Time Series (Daily)"])
         })
       )
    }

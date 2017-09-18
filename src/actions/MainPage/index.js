@@ -6,9 +6,11 @@ export const FETCHUSEREQUITIES = 'FETCHUSEREQUITIES'
 export const FETCHUSEREQUITIESFORPROFILEPAGE = `FETCHUSEREQUITIESFORPROFILEPAGE`
 
 const KEY = "MV8HZ4PAMIW9SLYH"
-const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
-const ONEMINUTEINVERVALS = "&interval=1min&apikey="
+const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
+const ONEMINUTEINVERVALS = "&apikey="
 const USERAPIURL = process.env.REACT_APP_API
+
+// update: as of 9/18/2017, the interday end point for api is not longer available, have to use daily enpoint
 
 
   const getLatestStockPrice = (obj) => {
@@ -38,7 +40,7 @@ export function FetchEquitesAlpha(equity) {
     dispatch({type: LOADINGEQUITYINFO})
     return fetch(BASEURL + equity + ONEMINUTEINVERVALS + KEY)
       .then(resp => resp.json())
-      .then(data => dispatch({type: FETCHEQUITYINFO, time: getLatestTimeRefreshed(data), price: getLatestStockPrice(data["Time Series (1min)"]), symbol: getStockSymbol(data) }))
+      .then(data => dispatch({type: FETCHEQUITYINFO, time: getLatestTimeRefreshed(data), price: getLatestStockPrice(data["Time Series (Daily)"]), symbol: getStockSymbol(data) }))
   }
 }
 

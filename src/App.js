@@ -34,7 +34,6 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.props.signedUp, 'test')
     return(
       <div className="body">
       <Router>
@@ -65,7 +64,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, "state")
   return {
     isLoggedIn: state.postLogin.auth.isLoggedIn,
     currentUser: state.postLogin.currentUser,

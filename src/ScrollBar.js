@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const KEY = "MV8HZ4PAMIW9SLYH"
-const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
+const BASEURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
 const ONEMINUTEINVERVALS = "&interval=1min&apikey="
 
 export default class ScrollBar extends Component{
@@ -13,6 +13,8 @@ export default class ScrollBar extends Component{
   }
 
   // Fetched API locally to get batch data which is not possible with redux
+
+  // update: as of 9/18/2017, the interday end point for api is not longer available, have to use daily enpoint
 
   getLatestStockPrice = (equityObj) => {
     let first;
@@ -32,7 +34,7 @@ export default class ScrollBar extends Component{
     fetch(BASEURL + equity + ONEMINUTEINVERVALS + KEY)
     .then(resp => resp.json())
     .then(data =>
-      this.setStateForMarqueeInfo(this.getLatestStockPrice(data["Time Series (1min)"]), equity)
+      this.setStateForMarqueeInfo(this.getLatestStockPrice(data["Time Series (Daily)"]), equity)
     )
  }
 
