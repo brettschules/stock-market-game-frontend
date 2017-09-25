@@ -48,11 +48,11 @@ export default class HowToPlay extends Component {
           </p>
           <Image className="profile-image" width="15" fluid={true} size="massive" src={InvestPage} />
           <h2>
-            Viewing all of your transcations
+            Viewing all of your transactions
           </h2>
           <p>
-            As a user, you can view all of your transcations at the Transcations Page.
-            The transcations are broken up in the follow categories....
+            As a user, you can view all of your transactions at the Transactions Page.
+            The transactions are broken up in the follow categories....
             <ul>
               <li>
                 <strong>Name - </strong> Name of the equity you purchased.
